@@ -26,9 +26,9 @@ const Navbar = () => {
               Komunitas
             </Link>
           </nav>
-          <div className="flex">
-            <Button title="Masuk" />
-            <Button title="Daftar" />
+          <div className="flex items-center gap-3">
+            <Button type= "masuk" title="Masuk" />
+            <Button type="daftar" title="Daftar" />
           </div>
         </div>
       </div>
