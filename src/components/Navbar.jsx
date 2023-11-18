@@ -1,17 +1,15 @@
 import { Link } from "react-scroll";
 import Button from "../layout/Button";
 
-
 const Navbar = () => {
   return (
     <div>
       <div>
-        <div>
+        <div className="flex flex-row justify-between p-5 lg:px-32 px-5 from-backgroundColor to-brightColor shadow">
           <div>
-            <span></span>
-            <h1>GREENWORLDAWARE</h1>
+            <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/main-logo-small.png?updatedAt=1697183029244" alt="gwa logo" />
           </div>
-          <nav>
+          <nav className="hidden md:flex flex-row items-center text-slate-800 font-bold gap-8">
             <Link to="beranda" spy={true} smooth={true} duration={500} className="cursor-pointer">
               Beranda
             </Link>
@@ -28,7 +26,7 @@ const Navbar = () => {
               Komunitas
             </Link>
           </nav>
-          <div>
+          <div className="flex">
             <Button title="Masuk" />
             <Button title="Daftar" />
           </div>
