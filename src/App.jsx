@@ -1,9 +1,13 @@
+import Home from "./components/Home.Jsx";
 import Navbar from "./components/Navbar";
+
 
 const App = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar/>
+      <Home/>
+     
     </div>
   );
 };

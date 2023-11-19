@@ -7,3 +7,8 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+.home {
+  background-image: url("https://ik.imagekit.io/irfantonov111/Low-Fi%20Hero.png?updatedAt=1700388073446");
+  transition: all 300ms ease-in-out;
+}
