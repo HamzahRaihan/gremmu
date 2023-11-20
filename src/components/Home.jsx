@@ -10,7 +10,7 @@ const Home = () => {
             CIPTAKAN LINGKUNGAN BERSIH UNTUK LINGKUNGAN SEHAT BERKELANJUTAN.
           </h1>
 
-          <p className="text-text text-[14px] lg:text-[18px]">
+          <p className="py-2 text-lg leading-loose">
           GreenWorldAware adalah website untuk anda yang sadar lingkungan, memberikan informasi, tips,
            dan wadah untuk membantu  anda membuat kontribusi kebersihan demi bumi yang lebih bersih.
           </p>
