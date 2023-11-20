@@ -1,12 +1,13 @@
-import Home from "./components/Home.Jsx";
+import Home from "./components/Home.jsx";
 import Navbar from "./components/Navbar";
-
+import Companies from "./components/Companies.jsx"
 
 const App = () => {
   return (
     <div>
       <Navbar/>
       <Home/>
+      <Companies/>
      
     </div>
   );
