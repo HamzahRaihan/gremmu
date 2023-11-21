@@ -1,15 +1,38 @@
+import { useEffect, useState } from 'react';
 import Companies from '../components/Companies';
 import Description from '../components/Description';
-import { HeroShapeDesktop } from '../components/ui/Shapes';
+import { HeroShapeDesktop, HeroShapeMobile } from '../components/ui/Shapes';
 import Button from '../layout/Button';
 
 const Home = () => {
+  const [screen, setScreen] = useState('');
+
+  useEffect(() => {
+    const updateScreenType = () => {
+      if (window.innerWidth >= 980) {
+        setScreen('desktop');
+      } else {
+        setScreen('mobile');
+      }
+    };
+
+    updateScreenType();
+
+    const handleResize = () => {
+      updateScreenType();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
       <div className="max-w-6xl grid w-full mx-auto md:bg-center grid-cols-2 max-[980px]:grid-cols-1 pt-20 items-center px-5 lg:px-[72px]">
-        <div className="absolute -right-0 -z-10 ">
-          <HeroShapeDesktop />
-        </div>
+        {screen == 'desktop' ? <HeroShapeDesktop /> : <HeroShapeMobile />}
         <div className="flex flex-col gap-4">
           <h1 className="text-4xl font-bold text-black">
             CIPTAKAN <span className="bg-[#11BB60] text-white">LINGKUNGAN</span> BERSIH UNTUK LINGKUNGAN <span className="bg-[#11BB60] text-white">SEHAT</span> BERKELANJUTAN.
