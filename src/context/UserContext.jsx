@@ -29,7 +29,7 @@ export const UserContextProvider = ({ children }) => {
       await axios
         .get('https://backend-final-project-eight.vercel.app/users')
         .then((response) => {
-          setUsers(response);
+          setUsers(response.data.data);
         })
         .catch((error) => {
           console.error('Internal server error', error.message);
