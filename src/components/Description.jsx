@@ -5,7 +5,7 @@ const Description = () => {
   return (
     <div className="w-full bg-white py-[50px]">
       <div className="md:max-w-[1480px] m-auto max-w-[600px]  px-4 md:px-0">
-        <h1 className="text-center text-2xl font-bold leading-[8rem]">
+        <h1 className="text-center text-2xl font-bold leading-loose">
           Mengapa Kita Harus Menjaga Kebersihan
         </h1>
         <p className="text-center text-xl leading-loose">
@@ -22,7 +22,7 @@ const Description = () => {
           />
 
           <div>
-            <h1 className="py-2 text-3xl font-semibold">
+            <h1 className="py-2 text-3xl font-semibold text-center leading-loose">
               Memahami Dampak Polusi Limbah
             </h1>
             <p className="py-2 text-xl leading-loose">
@@ -41,8 +41,8 @@ const Description = () => {
 
         <div className="md:max-w-[1480px] m-auto grid md:grid-cols-2 gap-36 max-w-[600px] items-center px-4 md:px-0">
 
-        <div className="pl-20">
-            <h1 className="py-2 text-3xl font-semibold leading-loose">
+        <div className="md:pl-20">
+            <h1 className="py-2 text-3xl font-semibold text-center leading-loose">
               Mengubah Polusi Limbah menjadi Solusi Berkelanjutan
             </h1>
             <p className="py-2 text-xl leading-loose">
