@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const Button = (props) => {
-  const buttonStyle = 'font-bold px-6 py-1 rounded-md transition-all duration-300';
+  const buttonStyle = 'font-bold px-6 py-2 rounded-md transition-all duration-300 max-[980px]:w-full';
 
   const masukStyle = 'text-[#F58549] border-[#F58549] hover:text-white hover:bg-[#FFA500]';
 
