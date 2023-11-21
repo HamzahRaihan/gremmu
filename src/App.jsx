@@ -2,6 +2,7 @@ import Home from "./components/Home.jsx";
 import Navbar from "./components/Navbar";
 import Companies from "./components/Companies.jsx"
 import Description from "./components/Description.jsx";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
       <Home/>
       <Companies/>
       <Description/>
-     
+      <Footer/>
     </div>
   );
 };
