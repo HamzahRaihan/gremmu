@@ -1,16 +1,15 @@
-import Home from "./components/Home.jsx";
-import Navbar from "./components/Navbar";
-import Companies from "./components/Companies.jsx"
-import Description from "./components/Description.jsx";
+import Navbar from './components/Navbar';
+import Companies from './components/Companies';
+import Description from './components/Description';
+import Home from './pages/Home';
 
 const App = () => {
   return (
     <div>
-      <Navbar/>
-      <Home/>
-      <Companies/>
-      <Description/>
-     
+      <Navbar />
+      <Home />
+      <Companies />
+      <Description />
     </div>
   );
 };
