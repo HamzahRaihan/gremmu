@@ -1,5 +1,5 @@
 import Button from '../layout/Button';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { IconSidebar } from './ui/Icons';
 import Sidebar from '../layout/Sidebar';
 import { useState } from 'react';
@@ -43,7 +43,9 @@ const Navbar = () => {
           </NavLink>
         </nav>
         <div className="flex items-center gap-3 max-[980px]:hidden">
-          <Button type="masuk" title="Masuk" />
+          <Link to="/login">
+            <Button type="masuk" title="Masuk" />
+          </Link>
           <Button type="daftar" title="Daftar" />
         </div>
         <button className="flex items-center gap-3 min-[980px]:hidden transition-all hover:bg-neutral-100 active:bg-neutral-200 rounded" onClick={handleSidebar}>
