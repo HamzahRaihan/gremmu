@@ -1,34 +1,42 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from '../context/userContext';
 import Button from '../layout/Button';
+import { Link } from 'react-router-dom';
 
 function FormLogin() {
-  const ctx = useContext(UserContext);
-  console.log(ctx.users);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { handleLogin } = useContext(UserContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin(email, password);
+  };
+
   return (
-    <div className="flex w-full ">
+    <div className="flex flex-row-reverse w-full ">
       <img className="relative filter bg-neutral-400 w-1/2 h-screen max-[980px]:hidden object-cover" src="https://source.unsplash.com/random/1920x1080/?trash" />
       <div className="absolute flex items-end w-1/2 h-screen max-[980px]:hidden overlay">
         <blockquote className="text-white p-10">&quot; Embrace the power of conscious choices, for every reduction in waste is a step towards a cleaner, greener tomorrow.&quot; #LessWasteMoreHope</blockquote>
       </div>
-      <form className="flex flex-col m-auto max-w-xl  gap-4 text-lg font-bold justify-center bg-neutral-100 p-10 rounded-lg max-[980px]:h-screen max-[980px]:mx-auto max-[980px]:my-20">
+      <form className="flex flex-col m-auto gap-4 text-lg font-bold justify-center bg-neutral-100 p-10 rounded-lg max-[980px]:h-screen max-[980px]:mx-auto max-[980px]:my-20" onSubmit={handleSubmit}>
         <img className="pb-10" src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/main-logo-small.png?updatedAt=1697183029244" width={300} alt="logo" />
         <h1 className="text-2xl">Login</h1>
-        <div className="grid grid-cols-2 max-[400px]:grid-cols-1 gap-4">
-          <div className="flex flex-col gap-4">
-            <label>Nama depan: </label>
-            <input className="rounded-lg w-full" type="text" placeholder="Nama depan" />
-          </div>
-          <div className="flex flex-col gap-4">
-            <label>Nama akhir: </label>
-            <input className="rounded-lg w-full" type="text" placeholder="Nama akhir" />
-          </div>
-        </div>
+
         <label>Email: </label>
-        <input className="rounded-lg w-full" type="email" placeholder="Email" />
+        <input className="rounded-lg w-full" type="email" placeholder="Email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+
         <label>Password: </label>
-        <input className="rounded-lg w-full" type="password" placeholder="password" />
-        <Button type="login" title="Masuk" />
+        <input className="rounded-lg w-full" type="password" placeholder="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} />
+
+        <Button type="daftar" title="Masuk" />
+
+        <p className="text-sm font-thin">
+          Belum punya akun?{' '}
+          <Link to="/register" className="text-orange-300">
+            Register
+          </Link>
+        </p>
       </form>
     </div>
   );
