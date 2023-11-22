@@ -58,36 +58,36 @@ const formatDate = () => {
 
 const NewsCarousel = () => {
   return (
-    <div className="w-full p-20">
-      <div className="flex justify-between items-center">
-        <h2 className="font-bold text-3xl mb-6">Berita Terkini</h2>
-        <div className="w-[454px] h-[15px] bg-[#000000] rounded-[50px] mb-6" />
-        <div className="relative p-12">
-          <FaArrowRightLong className="text-2xl text-[#000000] cursor-pointer swiper-button-next" />
-          <FaArrowLeftLong className="text-2xl text-[#000000] cursor-pointer swiper-button-prev" />
+    <div className="w-full p-4 md:p-20">
+      <div className="flex flex-col md:flex-row justify-between items-center">
+        <h2 className="font-bold text-2xl md:text-3xl mb-4 md:mb-6">Berita Terkini</h2>
+        <div className="w-full md:w-[454px] h-[15px] bg-[#000000] rounded-[50px] mb-4 md:mb-6" />
+        <div className="relative p-4 md:p-12">
+          <FaArrowRightLong className="text-xl md:text-2xl text-[#000000] cursor-pointer swiper-button-next" />
+          <FaArrowLeftLong className="text-xl md:text-2xl text-[#000000] cursor-pointer swiper-button-prev" />
         </div>
       </div>
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
+        spaceBetween={20}
         slidesPerView={3}
         navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
-        className="mb-10"
+        className="mb-6 md:mb-10"
       >
         {data.map((item) => (
           <SwiperSlide key={item.id} className="">
-            <div className="flex items-end h-64">
+            <div className="flex items-end h-48 md:h-64">
               <img src={item.imageUrl} alt={formatDate()} className="object-cover w-full h-full rounded" />
             </div>
-            <div className="py-4 text-black mb-10">
-              <h2 className="text-lg font-bold">{formatDate()}</h2>
-              <p className="text-sm mb-4">{item.description}</p>
-              <button className="font-bold py-2 rounded hover:text-green-600">Baca Selengkapnya</button>
+            <div className="py-2 md:py-4 text-black mb-4 md:mb-10">
+              <h2 className="text-md md:text-lg lg:text-xl font-bold">{formatDate()}</h2>
+              <p className="text-xs md:text-sm mb-2 md:mb-4">{item.description}</p>
+              <button className="font-bold text-xs md:text-base py-1 md:py-2 rounded hover:text-green-600">Baca Selengkapnya</button>
             </div>
           </SwiperSlide>
         ))}

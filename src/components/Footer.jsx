@@ -3,59 +3,53 @@ import { FaXTwitter, FaSquareFacebook, FaDiscord, FaInstagram } from "react-icon
 
 const Footer = () => {
   return (
-    <div className="flex flex-col w-[1512px] h-[345px] items-center justify-end gap-[20px] px-0 py-[64px] relative bg-[#11bb60] rounded-[30px_30px_0px_0px]">
-      <div className="flex flex-col w-[1280px] items-start gap-[20px] px-[32px] py-0 relative flex-[0_0_auto]">
-        <div className="flex items-start justify-between px-[30px] py-0 relative self-stretch w-full flex-[0_0_auto]">
-          <div className="flex flex-col w-[247px] h-[142px] items-start relative gap-3">
-            <div className="relative w-[177px] h-[49px] bg-[#ffffff] rounded-[8px] overflow-hidden">
-              <div className="inline-flex flex-col items-center gap-[10px] relative top-[-5px] cursor-pointer">
-                <img className="relative w-[177px] h-[50px]" alt="Greenworldaware" src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/GreenWorldAware-2%201.png?updatedAt=1696991576040" />
-              </div>
-            </div>
-            <p className="relative flex-1 self-stretch font-normal text-[#ffffff] text-[12px] tracking-[0] leading-[18px]">
-              Melalui artikel informatif, tips praktis, dan keterlibatan komunitas, kami bertujuan untuk memberdayakan individu untuk memberikan dampak yang berarti terhadap planet kita.
-            </p>
-          </div>
-          <div className="flex-col w-[247px] gap-[10px] flex items-start relative">
-            <div className="inline-flex h-[29px] items-center justify-center gap-[6px] relative">
-              <div className="relative w-[110px] font-bold text-[#ffffff] text-[16px] text-center tracking-[0] leading-[24px]">Kontak Kami</div>
-            </div>
-            <div className="flex flex-col items-start relative self-stretch w-full flex-[0_0_auto]">
-              <div className="relative w-fit mt-[-1.00px] font-normal text-[#ffffff] text-[12px] text-center tracking-[0] leading-[18px] whitespace-nowrap">+62 8912-3456</div>
-              <div className="relative w-fit font-normal text-[#ffffff] text-[12px] text-center tracking-[0] leading-[18px] whitespace-nowrap">contactus@gmail.com</div>
-              <div className="relative self-stretch w-full h-[12px]" />
+    <div className="w-full p-4 md:p-20 bg-[#11bb60] rounded-[30px_30px_0px_0px]">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+        <div className="flex flex-col w-full md:w-[524px] items-center md:items-start gap-4 md:gap-8">
+          <div className="relative w-[177px] h-[49px] bg-[#ffffff] rounded-[8px] overflow-hidden">
+            <div className="inline-flex flex-col items-center gap-2 relative top-[-5px] cursor-pointer">
+              <img className="relative w-[177px] h-[50px]" alt="Greenworldaware" src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/GreenWorldAware-2%201.png?updatedAt=1696991576040" />
             </div>
           </div>
-          <div className="flex flex-col w-[267px] items-start gap-[10px] px-[20px] py-0 relative self-stretch">
-            <header className="inline-flex h-[29px] items-center gap-[6px] relative bg-transparent">
-              <div className="relative w-fit font-bold text-[#ffffff] text-[16px] text-center tracking-[0] leading-[24px] whitespace-nowrap">Halaman</div>
-            </header>
-            <div className="flex-wrap gap-[17px_5px] self-stretch w-full flex-[0_0_auto] flex items-start relative">
-              <ButtonFooter property1="normal" text="Beranda" />
-              <ButtonFooter property1="normal" text="Tentang Kami" />
-              <ButtonFooter property1="normal" text="Berita" />
-              <ButtonFooter property1="normal" text="Video" />
-              <ButtonFooter property1="normal" text="Kuis" />
-              <ButtonFooter property1="normal" text="Komunitas" />
-            </div>
+          <p className="text-white text-center md:text-left text-sm leading-[18px] md:leading-[18px]">
+            Melalui artikel informatif, tips praktis, dan keterlibatan komunitas, kami bertujuan untuk memberdayakan individu untuk memberikan dampak yang berarti terhadap planet kita.
+          </p>
+        </div>
+        <div className="flex flex-col w-full md:w-[247px] gap-4 md:gap-8 items-center md:items-start">
+          <div className="flex items-center justify-center gap-2">
+            <div className="font-bold text-white text-md">Kontak Kami</div>
+          </div>
+          <div className="flex flex-col items-center md:items-start">
+            <div className="font-normal text-white text-xs md:text-sm whitespace-nowrap">+62 8912-3456</div>
+            <div className="font-normal text-white text-xs md:text-sm whitespace-nowrap">contactus@gmail.com</div>
           </div>
         </div>
-        <div className="flex items-center justify-between pt-[24px] pb-0 px-0 relative self-stretch w-full flex-[0_0_auto] border-t [border-top-style:solid] border-[#ffffff]">
-          <div className="flex flex-col w-[524px] items-start gap-[8px] relative">
-            <div className="relative self-stretch w-full h-[12px]">
-              <p className="absolute h-[11px] -top-px left-[26px] font-medium text-[#ffffff] text-[11px] tracking-[0] leading-[11px] whitespace-nowrap">© 2023 - Copyright - FS13</p>
-            </div>
+        <div className="flex flex-col w-full md:w-[267px] gap-4 md:gap-8 items-center md:items-start">
+          <header className="flex items-center gap-2 bg-transparent">
+            <div className="font-bold text-white text-md whitespace-nowrap">Halaman</div>
+          </header>
+          <div className="flex flex-wrap gap-2 self-stretch items-center">
+            <ButtonFooter property1="normal" text="Beranda" />
+            <ButtonFooter property1="normal" text="Tentang Kami" />
+            <ButtonFooter property1="normal" text="Berita" />
+            <ButtonFooter property1="normal" text="Video" />
+            <ButtonFooter property1="normal" text="Kuis" />
+            <ButtonFooter property1="normal" text="Komunitas" />
           </div>
-          <div className="flex gap-4">
-            <FaXTwitter className="relative w-[24px] h-[24px] text-[#ffffff] hover:text-[#8a928e] cursor-pointer" />
-            <FaSquareFacebook className="relative w-[24px] h-[24px] text-[#ffffff] hover:text-[#8a928e] cursor-pointer" />
-            <FaDiscord className="relative w-[24px] h-[24px] text-[#ffffff] hover:text-[#8a928e] cursor-pointer" />
-            <FaInstagram className="relative w-[24px] h-[24px] text-[#ffffff] hover:text-[#8a928e] cursor-pointer" />
-          </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-between pt-4 md:pt-8 pb-0 px-4 md:px-0 border-t border-white">
+        <div className="flex flex-col w-full md:w-[524px] items-center md:items-start gap-2">
+          <p className="text-white text-xs md:text-sm text-center md:text-left">© 2023 - Copyright - FS13</p>
+        </div>
+        <div className="flex gap-4">
+          <FaXTwitter className="w-6 h-6 text-white hover:text-[#8a928e] cursor-pointer" />
+          <FaSquareFacebook className="w-6 h-6 text-white hover:text-[#8a928e] cursor-pointer" />
+          <FaDiscord className="w-6 h-6 text-white hover:text-[#8a928e] cursor-pointer" />
+          <FaInstagram className="w-6 h-6 text-white hover:text-[#8a928e] cursor-pointer" />
         </div>
       </div>
     </div>
   );
 };
-
 export default Footer;
