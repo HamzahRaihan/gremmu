@@ -2,10 +2,13 @@ import Button from '../layout/Button';
 import { Link, NavLink } from 'react-router-dom';
 import { IconSidebar } from './ui/Icons';
 import Sidebar from '../layout/Sidebar';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../context/userContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { userData, handleLogout } = useContext(UserContext);
 
   const handleSidebar = (e) => {
     e.preventDefault();
@@ -43,12 +46,20 @@ const Navbar = () => {
           </NavLink>
         </nav>
         <div className="flex items-center gap-3 max-[980px]:hidden">
-          <Link to="/login">
-            <Button type="masuk" title="Masuk" />
-          </Link>
-          <Link to="/register">
-            <Button type="daftar" title="Daftar" />
-          </Link>
+          {!userData ? (
+            <>
+              <Link to="/login">
+                <Button type="masuk" title="Masuk" />
+              </Link>
+              <Link to="/register">
+                <Button type="daftar" title="Daftar" />
+              </Link>
+            </>
+          ) : (
+            <div>
+              <Button type="daftar" title="Keluar" onClick={handleLogout} />
+            </div>
+          )}
         </div>
         <button className="flex items-center gap-3 min-[980px]:hidden transition-all hover:bg-neutral-100 active:bg-neutral-200 rounded" onClick={handleSidebar}>
           <IconSidebar />
