@@ -16,17 +16,17 @@ const data = [
   },
   {
     id: 2,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550",
+    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/image-002.png?updatedAt=1697094991271",
     description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
   },
   {
     id: 3,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550",
+    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/Image-001.png?updatedAt=1697094974897",
     description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
   },
   {
     id: 4,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550",
+    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/image-002.png?updatedAt=1697094991271",
     description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
   },
   {
@@ -58,36 +58,52 @@ const formatDate = () => {
 
 const NewsCarousel = () => {
   return (
-    <div className="w-full p-4 md:p-20">
-      <div className="flex flex-col md:flex-row justify-between items-center">
-        <h2 className="font-bold text-2xl md:text-3xl mb-4 md:mb-6">Berita Terkini</h2>
-        <div className="w-full md:w-[454px] h-[15px] bg-[#000000] rounded-[50px] mb-4 md:mb-6" />
-        <div className="relative p-4 md:p-12">
-          <FaArrowRightLong className="text-xl md:text-2xl text-[#000000] cursor-pointer swiper-button-next" />
-          <FaArrowLeftLong className="text-xl md:text-2xl text-[#000000] cursor-pointer swiper-button-prev" />
+    <div className="w-full p-4 sm:p-20">
+      <div className="flex justify-between items-center">
+        <h2 className="font-bold text-3xl mb-6">Berita Terkini</h2>
+        <div className="w-[454px] h-[15px] bg-[#000000] rounded-[50px] mb-6" />
+        <div className="relative p-4 sm:p-12">
+          <FaArrowRightLong className="text-2xl text-[#000000] cursor-pointer swiper-button-next" />
+          <FaArrowLeftLong className="text-2xl text-[#000000] cursor-pointer swiper-button-prev" />
         </div>
       </div>
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={20}
+        spaceBetween={50}
         slidesPerView={3}
         navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
+        breakpoints={{
+          // when window width is >= 375px
+          375: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          // when window width is >= 1024px
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+        }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
-        className="mb-6 md:mb-10"
       >
         {data.map((item) => (
           <SwiperSlide key={item.id} className="">
-            <div className="flex items-end h-48 md:h-64">
+            <div className="flex items-end h-64">
               <img src={item.imageUrl} alt={formatDate()} className="object-cover w-full h-full rounded" />
             </div>
-            <div className="py-2 md:py-4 text-black mb-4 md:mb-10">
-              <h2 className="text-md md:text-lg lg:text-xl font-bold">{formatDate()}</h2>
-              <p className="text-xs md:text-sm mb-2 md:mb-4">{item.description}</p>
-              <button className="font-bold text-xs md:text-base py-1 md:py-2 rounded hover:text-green-600">Baca Selengkapnya</button>
+            <div className="py-4 text-black mb-10">
+              <h2 className="text-lg font-bold">{formatDate()}</h2>
+              <p className="text-sm mb-4">{item.description}</p>
+              <button className="font-bold py-2 rounded hover:text-green-600">Baca Selengkapnya</button>
             </div>
           </SwiperSlide>
         ))}
