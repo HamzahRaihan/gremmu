@@ -8,6 +8,8 @@ import Login from './pages/Auth/Login.jsx';
 import Register from './pages/Auth/Register.jsx';
 import Dampak from './pages/Information/Dampak.jsx';
 import Solusi from './pages/Information/Solusi.jsx';
+import AboutUs from './pages/AboutUs/Aboutus.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/solusi',
         element: <Solusi />,
+      },
+      {
+        path: '/tentang',
+        element: <AboutUs/>,
       },
     ],
   },

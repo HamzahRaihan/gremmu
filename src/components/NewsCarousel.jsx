@@ -3,10 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { recentnews } from "../data/recentnews";
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "swiper/swiper-bundle.css";
 
 const formatDate = () => {
   const currentDate = new Date();

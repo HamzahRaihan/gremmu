@@ -1,9 +1,9 @@
-import Button from './Button';
-import { Link, NavLink } from 'react-router-dom';
-import { IconSidebar } from '../components/ui/Icons';
-import Sidebar from './Sidebar';
-import { useContext, useState } from 'react';
-import { UserContext } from '../context/UserContext';
+import Button from "./Button";
+import { Link, NavLink } from "react-router-dom";
+import { IconSidebar } from "../components/ui/Icons";
+import Sidebar from "./Sidebar";
+import { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
           <NavLink to="/" className="cursor-pointer">
             Beranda
           </NavLink>
-          <NavLink to="tentang" className="cursor-pointer">
+          <NavLink to="/tentang" className="cursor-pointer">
             Tentang Kami
           </NavLink>
           <NavLink to="berita" className="cursor-pointer">
@@ -65,7 +65,7 @@ const Navbar = () => {
           <IconSidebar />
         </button>
       </div>
-      <div className={`fixed top-0 h-screen w-full lg:hidden ${!isOpen ? 'translate-x-full duration-300 transition-all ease-in' : 'translate-x-0 duration-300 transition-all ease-in'}`}>
+      <div className={`fixed top-0 h-screen w-full lg:hidden ${!isOpen ? "translate-x-full duration-300 transition-all ease-in" : "translate-x-0 duration-300 transition-all ease-in"}`}>
         <button className="fixed bg-black opacity-30 h-screen w-full -z-0" onClick={handleSidebar}></button>
         <Sidebar />
       </div>
