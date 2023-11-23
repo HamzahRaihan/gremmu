@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './layout/Navbar';
 import { UserContextProvider } from './context/UserContext';
+import Footer from './layout/Footer';
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <UserContextProvider>
         <Navbar />
         <Outlet />
+        <Footer />
       </UserContextProvider>
     </div>
   );
