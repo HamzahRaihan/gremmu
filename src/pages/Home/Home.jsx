@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import Companies from '../../components/Companies';
-import Description from '../../components/Description';
+import Companies from './Companies';
+import Description from './Description';
 import { HeroShapeDesktop, HeroShapeMobile } from '../../components/ui/Shapes';
 import Button from '../../layout/Button';
 import { Link } from 'react-router-dom';
 import NewsCarousel from '../../components/NewsCarousel';
+import CTAHomepage from './CTAHomepage';
 
 const Home = () => {
   const [screen, setScreen] = useState('');
@@ -54,6 +55,7 @@ const Home = () => {
       <Companies />
       <Description />
       <NewsCarousel />
+      <CTAHomepage />
     </>
   );
 };
