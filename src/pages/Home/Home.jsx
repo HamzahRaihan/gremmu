@@ -4,6 +4,7 @@ import Description from '../../components/Description';
 import { HeroShapeDesktop, HeroShapeMobile } from '../../components/ui/Shapes';
 import Button from '../../layout/Button';
 import { Link } from 'react-router-dom';
+import NewsCarousel from '../../components/NewsCarousel';
 
 const Home = () => {
   const [screen, setScreen] = useState('');
@@ -52,6 +53,7 @@ const Home = () => {
       </div>
       <Companies />
       <Description />
+      <NewsCarousel />
     </>
   );
 };
