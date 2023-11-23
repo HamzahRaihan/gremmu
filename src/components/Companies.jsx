@@ -1,25 +1,41 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { sponsors } from "../data/sponsors";
+import { Autoplay } from "swiper/modules";
 
 const Companies = () => {
   return (
-    <div className="flex items-center h-full bg-white">
-      <Swiper spaceBetween={50} slidesPerView={4} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
-        <SwiperSlide>
-          <img src="https://ik.imagekit.io/irfantonov111/Rexel%20logo.png?updatedAt=1700466528533" alt="rexel logo" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img src="https://ik.imagekit.io/irfantonov111/Greenpeace%20logo.png?updatedAt=1700466528378" alt="greenpeace logo" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://ik.imagekit.io/irfantonov111/BBC%20logo.png?updatedAt=1700466528243" alt="bbc logo" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://ik.imagekit.io/irfantonov111/aiden_adn%20logo.png?updatedAt=1700466528354" alt="aiden logo" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://ik.imagekit.io/irfantonov111/BBC%20logo.png?updatedAt=1700466528243" alt="bbc logo" />
-        </SwiperSlide>
+    <div className="flex w-full justify-center items-center h-full bg-white p-10">
+      <Swiper
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 50,
+          },
+        }}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        {sponsors.map((item) => (
+          <SwiperSlide key={item.title} style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "150px" }}>
+            <div className="flex items-centerjustify-center">
+              <img className="flex items-center justify-center" src={item.imageUrl} alt={item.title} />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

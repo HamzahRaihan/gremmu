@@ -1,55 +1,12 @@
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
-
+import { recentnews } from "../data/recentnews";
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-
-const data = [
-  {
-    id: 1,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-  {
-    id: 2,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/image-002.png?updatedAt=1697094991271",
-    description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
-  },
-  {
-    id: 3,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/Image-001.png?updatedAt=1697094974897",
-    description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
-  },
-  {
-    id: 4,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/image-002.png?updatedAt=1697094991271",
-    description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
-  },
-  {
-    id: 5,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-  {
-    id: 6,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-  {
-    id: 7,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550",
-    description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
-  },
-  {
-    id: 8,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550",
-    description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
-  },
-];
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const formatDate = () => {
   const currentDate = new Date();
@@ -95,7 +52,7 @@ const NewsCarousel = () => {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
       >
-        {data.map((item) => (
+        {recentnews.map((item) => (
           <SwiperSlide key={item.id} className="">
             <div className="flex items-end h-64">
               <img src={item.imageUrl} alt={formatDate()} className="object-cover w-full h-full rounded" />
