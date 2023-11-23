@@ -36,9 +36,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-between pt-[24px] pb-0 px-0 relative self-stretch w-full flex-[0_0_auto] border-t [border-top-style:solid] border-[#ffffff]">
-          <div className="flex flex-col w-[524px] items-start gap-[8px] relative">
-            <div className="relative self-stretch w-full h-[12px]">
+        <div className="flex items-center justify-between pt-[24px] pb-0 px-0  self-stretch w-full flex-[0_0_auto] border-t [border-top-style:solid] border-[#ffffff]">
+          <div className="flex flex-col items-start gap-[8px] ">
+            <div className="relative self-stretch w-fit  h-[12px]">
               <p className="absolute h-[11px] -top-px left-[26px] font-medium text-[#ffffff] text-[11px] tracking-[0] leading-[11px] whitespace-nowrap">© 2023 - Copyright - FS13</p>
             </div>
           </div>
