@@ -3,9 +3,11 @@ import App from './App.jsx';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import NotFound from './pages/NotFound.jsx';
-import Home from './pages/Home.jsx';
-import Login from './pages/Login.jsx';
-import Register from './pages/Register.jsx';
+import Home from './pages/Home/Home.jsx';
+import Login from './pages/Auth/Login.jsx';
+import Register from './pages/Auth/Register.jsx';
+import Dampak from './pages/Information/Dampak.jsx';
+import Solusi from './pages/Information/Solusi.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/dampak',
+        element: <Dampak />,
+      },
+      {
+        path: '/solusi',
+        element: <Solusi />,
       },
     ],
   },
