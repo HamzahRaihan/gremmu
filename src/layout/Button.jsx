@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import { UserContext } from '../context/userContext';
+import { UserContext } from '../context/UserContext';
 
 const Button = (props) => {
   const buttonStyle = 'font-bold px-6 py-2 rounded-md transition-all duration-300 max-[980px]:w-full';
