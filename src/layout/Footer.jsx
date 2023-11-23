@@ -1,5 +1,5 @@
-import ButtonFooter from "../layout/ButtonFooter";
-import { FaXTwitter, FaSquareFacebook, FaDiscord, FaInstagram } from "react-icons/fa6";
+import ButtonFooter from './ButtonFooter';
+import { FaXTwitter, FaSquareFacebook, FaDiscord, FaInstagram } from 'react-icons/fa6';
 
 const Footer = () => {
   return (

@@ -1,9 +1,12 @@
-import Home from './pages/Home';
+import { Outlet } from 'react-router-dom';
+import { UserContextProvider } from './context/UserContext';
 
 const App = () => {
   return (
     <div>
-      <Home />
+      <UserContextProvider>
+        <Outlet />
+      </UserContextProvider>
     </div>
   );
 };

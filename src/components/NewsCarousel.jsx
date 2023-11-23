@@ -3,16 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const data = [
   {
     id: 1,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550",
-    description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
+    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
+    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
   },
   {
     id: 2,
@@ -31,13 +31,13 @@ const data = [
   },
   {
     id: 5,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550",
-    description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
+    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
+    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
   },
   {
     id: 6,
-    imageUrl: "https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550",
-    description: "Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.",
+    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
+    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
   },
   {
     id: 7,
