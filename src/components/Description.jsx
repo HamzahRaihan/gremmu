@@ -5,7 +5,7 @@ const Description = () => {
   return (
     <div className="w-full bg-white py-[50px]">
       <div className="md:max-w-[1480px] m-auto max-w-[600px]  px-4 md:px-0">
-        <h1 className="text-center text-2xl font-bold leading-loose">Mengapa Kita Harus Menjaga Kebersihan</h1>
+        <h1 className="text-center text-2xl font-bold leading-[8rem]">Mengapa Kita Harus Menjaga Kebersihan</h1>
         <p className="text-center text-xl leading-loose">
           Mencegah pencemaran limbah bukan sekedar pilihan; itu suatu keharusan. Dengan meminimalkan polusi, kita melindungi keseimbangan ekosistem,memastikan udara dan air lebih bersih, dan berupaya mewujudkan dunia di mana alam tumbuh
           subur bersama kita.
