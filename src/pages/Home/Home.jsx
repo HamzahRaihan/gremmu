@@ -36,11 +36,11 @@ const Home = () => {
       <div className="max-w-6xl grid w-full mx-auto md:bg-center grid-cols-2 max-[980px]:grid-cols-1 pt-20 items-center px-5 lg:px-[72px]">
         {screen == 'desktop' ? <HeroShapeDesktop /> : <HeroShapeMobile />}
         <div className="flex flex-col gap-4">
-          <h1 className="text-4xl font-bold text-black">
+          <h1 className="text-4xl max-md:text-2xl font-bold text-black">
             CIPTAKAN <span className="bg-[#11BB60] text-white">LINGKUNGAN</span> BERSIH UNTUK LINGKUNGAN <span className="bg-[#11BB60] text-white">SEHAT</span> BERKELANJUTAN.
           </h1>
 
-          <p className="py-2 text-lg ">GreenWorldAware adalah website untuk anda yang sadar lingkungan, memberikan informasi, tips, dan wadah untuk membantu anda membuat kontribusi kebersihan demi bumi yang lebih bersih.</p>
+          <p className="py-2 text-lg">GreenWorldAware adalah website untuk anda yang sadar lingkungan, memberikan informasi, tips, dan wadah untuk membantu anda membuat kontribusi kebersihan demi bumi yang lebih bersih.</p>
           <div>
             <Link to="/register">
               <Button type="daftar" title="Daftar" />
