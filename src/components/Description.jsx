@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '../layout/Button';
 
 const Description = () => {
@@ -20,7 +21,9 @@ const Description = () => {
               bersama, kita memberdayakan diri kita sendiri untuk membuat pilihan yang tepat yang mendorong perubahan positif.
             </p>
             <div>
-              <Button type="daftar" title="Dampak" />
+              <Link to="/dampak">
+                <Button type="daftar" title="Dampak" />
+              </Link>
             </div>
           </div>
         </div>
@@ -33,7 +36,9 @@ const Description = () => {
               secara bertanggung jawab, dan mendorong praktik berkelanjutan untuk mengurangi dampak buruk pencemaran sampah terhadap lingkungan kita.
             </p>
             <div>
-              <Button type="daftar" title="Solusi" />
+              <Link to="/solusi">
+                <Button type="daftar" title="Solusi" />
+              </Link>
             </div>
           </div>
           <img src="https://i.imgur.com/0p2aRjX.png" className="w-[650px] pr-10" />
