@@ -3,7 +3,7 @@ import { FaXTwitter, FaSquareFacebook, FaDiscord, FaInstagram } from 'react-icon
 
 const Footer = () => {
   return (
-    <div className="flex flex-col w-full items-center justify-end  px-0 py-2 relative bg-[#11bb60] rounded-[30px_30px_0px_0px]">
+    <div className="flex flex-col w-full items-center justify-end  px-0 py-2 relative bg-[#11bb60] rounded-[30px_30px_0px_0px] pb-5">
       <div className="flex flex-col w-full items-start gap-[20px] px-[32px] py-0 relative flex-[0_0_auto]">
         <div className="grid grid-cols-3 max-[980px]:grid-cols-2 m-auto justify-between gap-5 py-5 max-w-4xl relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col items-start relative gap-3">
@@ -39,10 +39,10 @@ const Footer = () => {
         <div className="flex items-center justify-between pt-[24px] pb-0 px-0  self-stretch w-full flex-[0_0_auto] border-t [border-top-style:solid] border-[#ffffff]">
           <div className="flex flex-col items-start gap-[8px] ">
             <div className="relative self-stretch w-fit  h-[12px]">
-              <p className="absolute h-[11px] -top-px left-[26px] font-medium text-[#ffffff] text-[11px] tracking-[0] leading-[11px] whitespace-nowrap">© 2023 - Copyright - FS13</p>
+              <p className="absolute font-medium text-[#ffffff] text-[11px] tracking-[0] leading-[11px] whitespace-nowrap">© 2023 - Copyright - FS13</p>
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="grid grid-cols-4 max-md:grid-cols-2 gap-4">
             <FaXTwitter className="relative w-[24px] h-[24px] text-[#ffffff] hover:text-[#8a928e] cursor-pointer" />
             <FaSquareFacebook className="relative w-[24px] h-[24px] text-[#ffffff] hover:text-[#8a928e] cursor-pointer" />
             <FaDiscord className="relative w-[24px] h-[24px] text-[#ffffff] hover:text-[#8a928e] cursor-pointer" />
