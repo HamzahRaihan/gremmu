@@ -3,8 +3,8 @@ import Button from './Button';
 
 function Sidebar() {
   return (
-    <div className="p-4 fixed right-0 h-screen w-96 max-[400px]:w-72 max-[300px]:w-52 bg-white">
-      <nav className="flex flex-col  text-slate-800 font-bold gap-8">
+    <div className="p-4 fixed z-50 right-0 h-screen w-96 max-[400px]:w-72 max-[300px]:w-52 bg-white ">
+      <nav className="flex flex-col text-slate-800 font-bold gap-8">
         <NavLink to="/" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
           Beranda
         </NavLink>
