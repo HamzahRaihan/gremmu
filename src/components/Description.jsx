@@ -1,5 +1,4 @@
-import React from "react";
-import Button from "../layout/Button";
+import Button from '../layout/Button';
 
 const Description = () => {
   return (
