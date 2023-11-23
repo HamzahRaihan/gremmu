@@ -3,13 +3,13 @@ import Description from "../components/Description";
 import NewsCarousel from "../components/NewsCarousel";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Header from "../components/Header";
+import HeroSection from "../components/HeroSection";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      <Header />
+      <HeroSection />
       <Companies />
       <Description />
       <NewsCarousel />

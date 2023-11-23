@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { HeroShapeDesktop, HeroShapeMobile } from "../components/ui/Shapes";
+import { HeroShapeDesktop, HeroShapeMobile } from "./ui/Shapes";
 import Button from "../layout/Button";
-const Header = () => {
+const HeroSection = () => {
   const [screen, setScreen] = useState("");
 
   useEffect(() => {
@@ -46,4 +46,4 @@ const Header = () => {
     </>
   );
 };
-export default Header;
+export default HeroSection;
