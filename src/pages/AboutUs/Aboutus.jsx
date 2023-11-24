@@ -4,7 +4,7 @@ import Footer from "../../layout/Footer";
 
 const AboutUs = () => {
   return (
-    <div>
+    <>
       <div className="container p-4 m-auto">
         <div className="p-5 text-center bg-body-tertiary">
           <div className="container py-5 my-5">
@@ -90,7 +90,7 @@ const AboutUs = () => {
 
       <ContactUs />
       <Footer />
-    </div>
+    </>
   );
 };
 
