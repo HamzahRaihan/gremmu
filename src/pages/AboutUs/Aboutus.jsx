@@ -57,36 +57,34 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <section className="container py-5 text-center mt-5">
-        <div className="row py-lg-5">
-          <div className="col mx-auto">
-            <h2 className="py-3 text-lg-center">Temui Tim</h2>
-          </div>
+      <div className="py-5 text-center mt-5">
+        <div className="text-black text-3xl sm:text-4xl font-bold leading-[60px] py-12">
+          <h2 className="py-3">Temui Tim</h2>
         </div>
-        <div className="row justify-content-center gap-3">
-          <div className="card shadow-lg" style={{ width: "23rem" }}>
-            <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/male.png?updatedAt=1697361198103" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h3 className="card-title fw-medium fs-4">Hamzah Raihan Ikhsanul Fikri</h3>
-              <p className="card-text">Fullstack Web Development</p>
+        <div className="flex flex-wrap justify-center gap-10">
+          <div className="border rounded-lg p-4 hover:shadow-lg">
+            <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/male.png?updatedAt=1697361198103" className="w-80 h-80 object-cover rounded-full mb-4" alt="Hamzah Raihan Ikhsanul Fikri" />
+            <div>
+              <h3 className="font-medium text-xl">Hamzah Raihan Ikhsanul Fikri</h3>
+              <p>Fullstack Web Development</p>
             </div>
           </div>
-          <div className="card shadow-lg" style={{ width: "23rem" }}>
-            <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/male.png?updatedAt=1697361198103" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h3 className="card-title fw-medium fs-4">Irfan Hananto</h3>
-              <p className="card-text foo">Fullstack Web Development</p>
+          <div className="border rounded-lg p-4 hover:shadow-lg">
+            <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/male.png?updatedAt=1697361198103" className="w-80 h-80 object-cover rounded-full mb-4" alt="Irfan Hananto" />
+            <div>
+              <h3 className="font-medium text-xl">Irfan Hananto</h3>
+              <p>Fullstack Web Development</p>
             </div>
           </div>
-          <div className="card shadow-lg" style={{ width: "23rem" }}>
-            <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/male.png?updatedAt=1697361198103" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h3 className="card-title fw-medium fs-4">Alzi Rahmana Putra</h3>
-              <p className="card-text">Fullstack Web Development</p>
+          <div className="border rounded-lg p-4 hover:shadow-lg">
+            <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/male.png?updatedAt=1697361198103" className="w-80 h-80 object-cover rounded-full mb-4" alt="Alzi Rahmana Putra" />
+            <div>
+              <h3 className="font-medium text-xl">Alzi Rahmana Putra</h3>
+              <p>Fullstack Web Development</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <ContactUs />
       <Footer />
