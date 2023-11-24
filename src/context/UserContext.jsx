@@ -149,11 +149,11 @@ export const UserContextProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    if (userData !== undefined && userData !== null) {
-      navigate('/');
-    }
-  }, [navigate, userData]);
+  // useEffect(() => {
+  //   if (userData !== undefined && userData !== null && window.location.href.includes('/login') && window.location.href.includes('/register')) {
+  //     navigate('/');
+  //   }
+  // }, [navigate, userData]);
 
   return <UserContext.Provider value={{ loading, users, userData, token, handleLogin, handleRegister, handleLogout }}>{children}</UserContext.Provider>;
 };
