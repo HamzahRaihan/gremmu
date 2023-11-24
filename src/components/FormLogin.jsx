@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext';
 import Button from '../layout/Button';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 function FormLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { handleLogin } = useContext(UserContext);
+  const { userData, handleLogin } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +15,8 @@ function FormLogin() {
 
   return (
     <div className="flex flex-row-reverse w-full ">
+      {userData && <Navigate to="/" replace={true} />}
+
       <img className="relative filter bg-neutral-400 w-1/2 h-screen max-[980px]:hidden object-cover" src="https://source.unsplash.com/random/1920x1080/?trash" />
       <div className="absolute flex items-end w-1/2 h-screen max-[980px]:hidden overlay">
         <blockquote className="text-white p-10">&quot; Embrace the power of conscious choices, for every reduction in waste is a step towards a cleaner, greener tomorrow.&quot; #LessWasteMoreHope</blockquote>
