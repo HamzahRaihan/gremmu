@@ -31,7 +31,7 @@ function FormLogin() {
 
         <Button type="daftar" title="Masuk" />
 
-        <p className="text-sm font-thin">
+        <p className="text-sm font-medium">
           Belum punya akun?{' '}
           <Link to="/register" className="text-orange-300">
             Register
