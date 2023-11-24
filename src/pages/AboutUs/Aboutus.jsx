@@ -1,8 +1,10 @@
 import React from "react";
+import { ContactUs } from "../../components/ContactUs";
+import Footer from "../../layout/Footer";
 
 const AboutUs = () => {
   return (
-    <>
+    <div>
       <div className="container p-4 m-auto">
         <div className="p-5 text-center bg-body-tertiary">
           <div className="container py-5 my-5">
@@ -86,35 +88,9 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className="contact-us my-5">
-        <div className="headline-contact">
-          <h2>Kontak Kami</h2>
-        </div>
-        <form id="form">
-          <div className="personal-info">
-            <input type="text" id="name" placeholder="nama" />
-
-            <input type="text" id="city" placeholder="kota" />
-          </div>
-
-          <input type="email" id="email" placeholder="email" />
-
-          <input type="text" id="zip-code" placeholder="zip-code" />
-
-          <div className="form-check">
-            <label htmlFor="check" id="check">
-              {" "}
-              Dengan ini saya menyatakan data yang diisi pada form ini adalah benar dan telah sesuai{" "}
-            </label>
-            <input type="checkbox" id="status" />
-          </div>
-          <button className="btn-primary" id="submit-form" type="submit">
-            Submit
-          </button>
-          <div id="warning"></div>
-        </form>
-      </section>
-    </>
+      <ContactUs />
+      <Footer />
+    </div>
   );
 };
 
