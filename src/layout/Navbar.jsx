@@ -47,20 +47,20 @@ const Navbar = () => {
           <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/main-logo-small.png?updatedAt=1697183029244" className="max-[980px]:hidden" alt="gwa logo" />
           <img src="https://raw.githubusercontent.com/Skilvul-FS13/Mobile-Responsive-Website/master/img/logo3.png" className="hidden max-[980px]:block" width={50} alt="logo" />
         </div>
-        <nav className="flex flex-row items-center text-slate-800 font-bold gap-8 max-[980px]:hidden">
-          <NavLink to="/" className="cursor-pointer">
+        <nav className="flex flex-row items-center text-slate-800 font-bold  gap-6 max-[980px]:hidden">
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
             Beranda
           </NavLink>
-          <NavLink to="tentang" className="cursor-pointer">
+          <NavLink to="tentang" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
             Tentang Kami
           </NavLink>
-          <NavLink to="berita" className="cursor-pointer">
+          <NavLink to="berita" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
             Berita
           </NavLink>
-          <NavLink to="petisi" className="cursor-pointer">
+          <NavLink to="petisi" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
             Petisi
           </NavLink>
-          <NavLink to="/komunitas" className="cursor-pointer">
+          <NavLink to="/komunitas" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
             Komunitas
           </NavLink>
         </nav>
