@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext';
 import Button from '../layout/Button';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 function FormRegister() {
   const [firstName, setFirstName] = useState('');
@@ -10,7 +10,7 @@ function FormRegister() {
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('laki-laki');
 
-  const { handleRegister } = useContext(UserContext);
+  const { userData, handleRegister } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +19,8 @@ function FormRegister() {
 
   return (
     <div className="flex w-full ">
+      {userData && <Navigate to="/" replace={true} />}
+
       <img className="relative filter bg-neutral-400 w-1/2 h-screen max-[980px]:hidden object-cover" src="https://source.unsplash.com/random/1920x1080/?trash" />
 
       <div className="absolute flex items-end w-1/2 h-screen max-[980px]:hidden overlay">
