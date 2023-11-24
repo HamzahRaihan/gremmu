@@ -1,9 +1,11 @@
 import PostInput from './PostInput';
+import Posts from './Posts';
 
 function Community() {
   return (
-    <div>
+    <div className="flex flex-col h-screen max-w-6xl m-auto pt-32 px-2 gap-10">
       <PostInput />
+      <Posts />
     </div>
   );
 }
