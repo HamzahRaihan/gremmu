@@ -10,17 +10,15 @@ export const UserContext = createContext({
   handleLogin: async () => {},
   handleRegister: async () => {},
   handleLogout: () => {},
-  userData: undefined,
-  token: undefined,
+  userData: null,
+  token: null,
   users: [],
   loading: false,
 });
 
 export const UserContextProvider = ({ children }) => {
   const [userData, setUserData] = useState(undefined);
-  console.log('🚀 ~ file: UserContext.jsx:20 ~ UserContextProvider ~ userData:', userData?.id);
   const [token, setToken] = useState(undefined);
-  console.log('🚀 ~ file: UserContext.jsx:22 ~ UserContextProvider ~ token:', token);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -150,7 +148,7 @@ export const UserContextProvider = ({ children }) => {
   };
 
   // useEffect(() => {
-  //   if (userData !== undefined && userData !== null && window.location.href.includes('/login') && window.location.href.includes('/register')) {
+  //   if ((userData !== undefined && userData !== null && window.location.href.includes('/login')) || window.location.href.includes('/register')) {
   //     navigate('/');
   //   }
   // }, [navigate, userData]);
