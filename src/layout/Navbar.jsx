@@ -2,13 +2,32 @@ import Button from './Button';
 import { Link, NavLink } from 'react-router-dom';
 import { IconSidebar } from '../components/ui/Icons';
 import Sidebar from './Sidebar';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { UserContext } from '../context/UserContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+  const [isPageTop, setIsPageTop] = useState(true);
   const { userData, handleLogout } = useContext(UserContext);
+  const previousCurrentScrollPosition = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPosition = window.scrollY;
+      setIsPageTop(currentScrollPosition == 0);
+
+      if (previousCurrentScrollPosition.current < currentScrollPosition && !isNavbarVisible) {
+        setIsNavbarVisible(true);
+      } else if (previousCurrentScrollPosition.current > currentScrollPosition && isNavbarVisible) {
+        setIsNavbarVisible(false);
+      } else {
+        previousCurrentScrollPosition.current = currentScrollPosition;
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isNavbarVisible]);
 
   const handleSidebar = (e) => {
     e.preventDefault();
@@ -23,7 +42,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex flex-row justify-between p-5 px-5 bg-white w-full shadow fixed z-10">
+      <div className={`flex flex-row transition-all duration-300 ease-in-out justify-between px-5 bg-white w-full fixed z-10 ${isNavbarVisible ? '' : 'translate-y-0'} ${isPageTop ? 'p-7 translate-y-0 ' : 'p-5 -translate-y-20 shadow'} `}>
         <div className="logo">
           <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/main-logo-small.png?updatedAt=1697183029244" className="max-[980px]:hidden" alt="gwa logo" />
           <img src="https://raw.githubusercontent.com/Skilvul-FS13/Mobile-Responsive-Website/master/img/logo3.png" className="hidden max-[980px]:block" width={50} alt="logo" />
@@ -41,7 +60,7 @@ const Navbar = () => {
           <NavLink to="petisi" className="cursor-pointer">
             Petisi
           </NavLink>
-          <NavLink to="komunitas" className="cursor-pointer">
+          <NavLink to="/komunitas" className="cursor-pointer">
             Komunitas
           </NavLink>
         </nav>
