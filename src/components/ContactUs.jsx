@@ -22,19 +22,46 @@ export const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50">
-      <div className="sm:w-full md:w-[600px] lg:w-[800px] bg-white p-8 rounded-lg shadow-md">
-        <div className="text-black text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center">Hubungi Kami</div>
-        <form onSubmit={handleSubmit} className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="w-full p-2 border rounded-md" placeholder="Nama depan" />
-            <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="w-full p-2 border rounded-md" placeholder="Nama belakang" />
+    <div className="flex justify-center items-center h-screen">
+      <div className="w-full sm:w-[1280px] h-[558px] px-8 flex flex-col justify-start items-start gap-5">
+        <div className="self-center pb-10 flex justify-center items-center">
+          <div className="text-black text-3xl sm:text-4xl font-bold leading-[60px]">Hubungi Kami</div>
+        </div>
+        <form 
+          onSubmit={handleSubmit} 
+          className="self-center w-full h-[388px] p-8 bg-gray-100 rounded-lg flex flex-col justify-start items-start gap-6">
+          <div className="w-full flex justify-between items-center gap-6">
+            <input 
+              type="text" 
+              name="firstName" 
+              value={formData.firstName} 
+              onChange={handleChange}  
+              placeholder="Nama depan"
+              className="w-full sm:w-[50%] bg-gray-200 rounded-xl shadow p-3" />
+            <input 
+              type="text" 
+              name="lastName" 
+              value={formData.lastName} 
+              onChange={handleChange} 
+              placeholder="Nama belakang"
+              className="w-full sm:w-[50%] bg-gray-200 rounded-xl shadow p-3"  />
           </div>
-          <input type="text" name="subject" value={formData.subject} onChange={handleChange} className="w-full p-2 mt-4 border rounded-md" placeholder="Subjek" />
-          <textarea name="message" value={formData.message} onChange={handleChange} className="w-full p-2 mt-4 border rounded-md" placeholder="Pesan" />
-          <div className="mt-4">
-            <button type="submit" className="w-full bg-green-500 text-white p-2 rounded-md hover:bg-green-600">
-              Kirim
+          <input 
+            type="text" 
+            name="subject" 
+            value={formData.subject} 
+            onChange={handleChange}
+            placeholder="Subjek"
+            className="w-full bg-gray-200 rounded-xl shadow p-3"  />
+          <textarea 
+            name="message" 
+            value={formData.message} 
+            onChange={handleChange}
+            placeholder="Pesan" 
+            className="w-full h-[116px] bg-gray-200 rounded-xl shadow p-3"  />
+          <div className="w-full flex justify-start items-start">
+            <button type="submit" className="w-[124px] h-11 px-[86px] py-[18px] bg-green-500 rounded-xl flex justify-center items-center gap-2.5">
+              <div className="text-white font-semibold">Kirim</div>
             </button>
           </div>
         </form>
