@@ -42,7 +42,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`flex flex-row transition-all duration-300 ease-in-out justify-between px-5 bg-white w-full fixed z-10 ${isNavbarVisible ? '' : 'translate-y-0'} ${isPageTop ? 'p-7 translate-y-0 ' : 'p-5 -translate-y-20 shadow'} `}>
+      <div className={`flex flex-row transition-all duration-300 ease-in-out justify-between px-5 bg-white w-full fixed z-10 ${isNavbarVisible ? '' : 'translate-y-0'} ${isPageTop ? 'p-7 translate-y-0 ' : 'p-5 -translate-y-full shadow'} `}>
         <div className="logo">
           <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/main-logo-small.png?updatedAt=1697183029244" className="max-[980px]:hidden" alt="gwa logo" />
           <img src="https://raw.githubusercontent.com/Skilvul-FS13/Mobile-Responsive-Website/master/img/logo3.png" className="hidden max-[980px]:block" width={50} alt="logo" />
