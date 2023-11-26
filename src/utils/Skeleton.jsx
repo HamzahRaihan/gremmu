@@ -43,3 +43,57 @@ export const PostSkeleton = () => {
     </>
   );
 };
+
+export const CommentSkeleton = () => {
+  return (
+    <div className="flex flex-col gap-10 overflow-y-auto overflow-x-hidden overscroll-none z-50 py-10 px-10 h-full">
+      <div className="flex gap-4">
+        <div className="flex flex-col justify-center items-center h-full">
+          <div className="rounded-full bg-neutral-400 h-14 w-10 object-cover z-10 animate-pulse"></div>
+          <div className="h-full"></div>
+        </div>
+
+        <div className="flex flex-col h-full w-full overflow-auto gap-3">
+          <div className="flex gap-2 items-center">
+            <h1 className="h-5 w-36 bg-neutral-600 animate-pulse"></h1> • <h1 className="h-5 w-36 bg-neutral-400 animate-pulse"></h1>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <h1 className="h-4 w-7 bg-neutral-400 animate-pulse"></h1>
+            <h1 className="h-4 w-80 bg-neutral-400 animate-pulse"></h1>
+            <h1 className="h-4 w-7 bg-neutral-400 animate-pulse"></h1>
+            <h1 className="h-4 w-52 bg-neutral-400 animate-pulse"></h1>
+            <h1 className="h-4 w-80 bg-neutral-400 animate-pulse"></h1>
+            <h1 className="h-4 w-52 bg-neutral-400 animate-pulse"></h1>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-neutral-100 p-5 rounded-lg">
+        <div className="border-b border-neutral-800 pb-2 mb-2 ">
+          <div className="h-4 w-36 bg-neutral-400 animate-pulse"></div>
+        </div>
+
+        <div className="flex gap-4">
+          <div className="flex flex-col justify-center items-center h-full">
+            <div className="rounded-full bg-neutral-400 h-10 w-10 object-cover z-10 animate-pulse"></div>
+            <div className="h-full"></div>
+          </div>
+
+          <div className="flex flex-col h-full w-full overflow-auto gap-3">
+            <div className="flex gap-2 items-center">
+              <h1 className="h-5 w-36 bg-neutral-600 animate-pulse"></h1> • <h1 className="h-5 w-36 bg-neutral-400 animate-pulse"></h1>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <h1 className="h-4 w-7 bg-neutral-400 animate-pulse"></h1>
+              <h1 className="h-4 w-80 bg-neutral-400 animate-pulse"></h1>
+              <h1 className="h-4 w-7 bg-neutral-400 animate-pulse"></h1>
+              <h1 className="h-4 w-52 bg-neutral-400 animate-pulse"></h1>
+              <h1 className="h-4 w-80 bg-neutral-400 animate-pulse"></h1>
+              <h1 className="h-4 w-52 bg-neutral-400 animate-pulse"></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
