@@ -10,7 +10,7 @@ function FormRegister() {
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('laki-laki');
 
-  const { userData, handleRegister } = useContext(UserContext);
+  const { userData, handleRegister, loading } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,9 +54,9 @@ function FormRegister() {
           <option value="laki-laki">Laki-laki</option>
           <option value="perempuan">Perempuan</option>
         </select>
-        <Button type="login" title="Daftar" />
+        <Button type="login" title="Daftar" disabled={loading} />
 
-        <p className="text-sm font-thin">
+        <p className="text-sm font-medium">
           Sudah punya akun?{' '}
           <Link to="/login" className="text-orange-300">
             Login
