@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import { UserContext } from '../context/UserContext';
 
 const Button = (props) => {
   const buttonStyle = 'font-bold px-6 py-2 rounded-md transition-all duration-300 max-[980px]:w-full';
@@ -9,12 +7,10 @@ const Button = (props) => {
 
   const daftarStyle = 'text-white bg-[#11BB60] border-[#11BB60] hover:text-[#11BB60] hover:bg-white';
 
-  const { loading } = useContext(UserContext);
-
   return (
     <div>
-      <button disabled={loading} className={`${buttonStyle} ${props.type === 'masuk' ? masukStyle : daftarStyle}`} onClick={props.onClick}>
-        {loading ? (
+      <button disabled={props.disabled} className={`${buttonStyle} ${props.type === 'masuk' ? masukStyle : daftarStyle}`} onClick={props.onClick}>
+        {props.disabled ? (
           <div>
             <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -40,6 +36,7 @@ Button.propTypes = {
   title: PropTypes.string,
   onClick: PropTypes.func,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default Button;
