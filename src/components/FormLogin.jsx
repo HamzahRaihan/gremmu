@@ -6,7 +6,7 @@ import { Link, Navigate } from 'react-router-dom';
 function FormLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { userData, handleLogin } = useContext(UserContext);
+  const { userData, handleLogin, loading } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ function FormLogin() {
         <label>Password: </label>
         <input className="rounded-lg w-full" type="password" placeholder="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-        <Button type="daftar" title="Masuk" />
+        <Button type="daftar" title="Masuk" disabled={loading} />
 
         <p className="text-sm font-medium">
           Belum punya akun?{' '}
