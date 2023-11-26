@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { ACCOUNT_KEY, TOKEN } from '../constants/key';
+import { ACCOUNT_KEY, TOKEN } from '../constants/Key';
 import toast from 'react-hot-toast';
 import { jwtDecode } from 'jwt-decode';
 
@@ -18,7 +18,6 @@ export const UserContext = createContext({
 
 export const UserContextProvider = ({ children }) => {
   const [userData, setUserData] = useState(undefined);
-  console.log('🚀 ~ file: UserContext.jsx:21 ~ UserContextProvider ~ userData:', userData);
   const [token, setToken] = useState(undefined);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
