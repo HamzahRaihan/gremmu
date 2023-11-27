@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ACCOUNT_KEY, TOKEN } from '../constants/Key';
 import toast from 'react-hot-toast';
 import { jwtDecode } from 'jwt-decode';
@@ -14,14 +14,20 @@ export const UserContext = createContext({
   token: null,
   users: [],
   loading: false,
+  userById: [],
+  loadingUser: false,
 });
 
 export const UserContextProvider = ({ children }) => {
   const [userData, setUserData] = useState(undefined);
   const [token, setToken] = useState(undefined);
   const [users, setUsers] = useState([]);
+  const [userById, setUserById] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingUser, setLoadingUser] = useState(false);
   const navigate = useNavigate();
+
+  const { userId } = useParams();
 
   useEffect(() => {
     const loginToken = JSON.stringify(localStorage.getItem(TOKEN));
@@ -48,6 +54,22 @@ export const UserContextProvider = ({ children }) => {
     };
     getUsers();
   }, []);
+
+  useEffect(() => {
+    setLoadingUser(true);
+    const getUserById = async () => {
+      await axios
+        .get(`https://backend-final-project-eight.vercel.app/users/${userId ? userId : 1}`)
+        .then((response) => {
+          setUserById(response.data.data);
+          setLoadingUser(false);
+        })
+        .catch((error) => {
+          console.error('Internal server error', error.message);
+        });
+    };
+    getUserById();
+  }, [userId]);
 
   const handleLogin = async (email, password) => {
     setLoading(true);
@@ -147,7 +169,7 @@ export const UserContextProvider = ({ children }) => {
     }
   };
 
-  return <UserContext.Provider value={{ loading, users, userData, token, handleLogin, handleRegister, handleLogout }}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ loading, loadingUser, users, userData, token, handleLogin, handleRegister, handleLogout, userById }}>{children}</UserContext.Provider>;
 };
 
 UserContextProvider.propTypes = {
