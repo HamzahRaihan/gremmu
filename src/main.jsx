@@ -9,6 +9,7 @@ import Register from './pages/Auth/Register.jsx';
 import Dampak from './pages/Information/Dampak.jsx';
 import Solusi from './pages/Information/Solusi.jsx';
 import Community from './pages/Community/Community.jsx';
+import Profile from './pages/Profile/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/komunitas',
         element: <Community />,
+      },
+      {
+        path: '/user/:userId',
+        element: <Profile />,
       },
     ],
   },
