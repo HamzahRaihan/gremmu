@@ -2,12 +2,14 @@ import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { ACCOUNT_KEY, TOKEN } from '../constants/Key';
+import { useParams } from 'react-router-dom';
 
 export const PostContext = createContext({
   handlePost: async () => {},
   handleLike: async () => {},
   handleDislike: async () => {},
   posts: [],
+  postsById: [],
   commentsByPost: [],
   loading: true,
   loadingDetailed: true,
@@ -17,6 +19,7 @@ export const PostContext = createContext({
   setPostId: () => {},
   detailedPost: async () => {},
   handleComment: async () => {},
+  handleDeletePost: async () => {},
 });
 
 export const PostContextProvider = ({ children }) => {
@@ -28,26 +31,29 @@ export const PostContextProvider = ({ children }) => {
   const [buttonComment, setButtonComment] = useState(false);
   const [detailedPost, setDetailedPost] = useState([]);
   const [commentsByPost, setCommentsByPost] = useState([]);
-  console.log('🚀 ~ file: PostContext.jsx:31 ~ PostContextProvider ~ commentsByPost:', commentsByPost);
-  const [postId, setPostId] = useState(0);
+  const [postId, setPostId] = useState(1);
+  const [postsById, setPostsById] = useState([]);
 
   const token = localStorage.getItem(TOKEN);
 
   const parsedUserData = JSON.parse(localStorage.getItem(ACCOUNT_KEY));
   const id = parsedUserData?.id;
 
+  const { userId } = useParams();
+
   // Render Posts
   const getPosts = async () => {
+    setLoading(true);
     await axios
       .get('https://backend-final-project-fs13.vercel.app/posts')
       .then((response) => {
         const postsData = response.data.data;
         setPosts(postsData);
-        setLoading(false);
       })
       .catch((error) => {
         console.error('Internal server error', error.message);
       });
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -55,17 +61,32 @@ export const PostContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const getPostById = async () => {
-      setLoadingDetailed(true);
+    setLoadingDetailed(true);
+    const getDetailedPostById = async () => {
       const { data } = await axios.get(`https://backend-final-project-fs13.vercel.app/posts/${postId}`);
       setDetailedPost(data.data);
-      setLoadingDetailed(false);
     };
-    getPostById();
+    setLoadingDetailed(false);
+    getDetailedPostById();
   }, [postId]);
 
-  // Render Comments
+  useEffect(() => {
+    const getPostsByUserId = async () => {
+      setLoading(true);
+      await axios
+        .get(`https://backend-final-project-eight.vercel.app/users/${userId}/posts`)
+        .then((response) => {
+          setPostsById(response.data.data);
+        })
+        .catch((error) => {
+          console.error('Internal server error', error.message);
+        });
+      setLoading(false);
+    };
+    getPostsByUserId();
+  }, [userId]);
 
+  // Render Comments
   useEffect(() => {
     const getCommentsByPostId = async () => {
       await axios
@@ -103,6 +124,18 @@ export const PostContextProvider = ({ children }) => {
       .catch((error) => console.error(error.message));
     await getPosts();
     setButtonPost(false);
+  };
+
+  const handleDeletePost = async (id) => {
+    setLoading(true);
+    await axios.delete(`https://backend-final-project-fs13.vercel.app/posts/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    await getPosts();
+    setLoading(false);
   };
 
   // Handle Like and Dislike
@@ -170,6 +203,7 @@ export const PostContextProvider = ({ children }) => {
         handleLike,
         handleDislike,
         posts,
+        postsById,
         commentsByPost,
         loading,
         loadingDetailed,
@@ -179,6 +213,7 @@ export const PostContextProvider = ({ children }) => {
         setPostId,
         detailedPost,
         handleComment,
+        handleDeletePost,
       }}
     >
       {children}
