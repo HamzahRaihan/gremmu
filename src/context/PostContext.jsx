@@ -13,6 +13,7 @@ export const PostContext = createContext({
   commentsByPost: [],
   loading: true,
   loadingDetailed: true,
+  loadingPostById: true,
   button: true,
   buttonPost: true,
   buttonComment: true,
@@ -24,16 +25,21 @@ export const PostContext = createContext({
 
 export const PostContextProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [loadingDetailed, setLoadingDetailed] = useState(true);
-  const [button, setButton] = useState(false);
-  const [buttonPost, setButtonPost] = useState(false);
-  const [buttonComment, setButtonComment] = useState(false);
   const [detailedPost, setDetailedPost] = useState([]);
   const [commentsByPost, setCommentsByPost] = useState([]);
   const [postId, setPostId] = useState(1);
   const [postsById, setPostsById] = useState([]);
   console.log('🚀 ~ file: PostContext.jsx:36 ~ PostContextProvider ~ postsById:', postsById);
+
+  // loading state
+  const [loading, setLoading] = useState(true);
+  const [loadingDetailed, setLoadingDetailed] = useState(true);
+  const [loadingPostById, setLoadingPostById] = useState(true);
+
+  // loading state for button after clicked
+  const [button, setButton] = useState(false);
+  const [buttonPost, setButtonPost] = useState(false);
+  const [buttonComment, setButtonComment] = useState(false);
 
   const token = localStorage.getItem(TOKEN);
 
@@ -44,13 +50,12 @@ export const PostContextProvider = ({ children }) => {
 
   // Render Posts
   const getPosts = async () => {
-    setLoading(true);
     await axios
       .get('https://backend-final-project-fs13.vercel.app/posts')
       .then((response) => {
         const postsData = response.data.data;
-        setPosts(postsData);
         setLoading(false);
+        setPosts(postsData);
       })
       .catch((error) => {
         console.error('Internal server error', error.message);
@@ -76,15 +81,14 @@ export const PostContextProvider = ({ children }) => {
       .get(`https://backend-final-project-eight.vercel.app/users/${userId}/posts`)
       .then((response) => {
         setPostsById(response.data.data);
+        setLoadingPostById(false);
       })
       .catch((error) => {
         console.error('Internal server error', error.message);
       });
   };
   useEffect(() => {
-    setLoading(true);
     getPostsByUserId();
-    setLoading(false);
   }, [userId]);
 
   // Render Comments
@@ -159,7 +163,6 @@ export const PostContextProvider = ({ children }) => {
       .catch((error) => console.error(error.message));
     await getPosts();
     await getPostsByUserId();
-
     setButton(false);
   };
 
@@ -175,7 +178,6 @@ export const PostContextProvider = ({ children }) => {
       .catch((error) => console.error(error.message));
     await getPosts();
     await getPostsByUserId();
-
     setButton(false);
   };
 
@@ -212,6 +214,7 @@ export const PostContextProvider = ({ children }) => {
         commentsByPost,
         loading,
         loadingDetailed,
+        loadingPostById,
         button,
         buttonPost,
         buttonComment,
