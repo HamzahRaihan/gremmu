@@ -12,8 +12,7 @@ import { UserBadge } from './UserBadge';
 
 const ProfilePost = () => {
   const { userData } = useContext(UserContext);
-  const { postsById, loading, handleLike, handleDislike, button, setPostId, handleDeletePost } = useContext(PostContext);
-  console.log('🚀 ~ file: ProfilePost.jsx:16 ~ ProfilePost ~ loading:', loading);
+  const { postsById, loadingPostById, handleLike, handleDislike, button, setPostId, handleDeletePost } = useContext(PostContext);
 
   const [likeCount, setLikeCount] = useState(postsById.map((post) => post.Likes?.length || 0));
   const [isOpen, setIsOpen] = useState(false);
@@ -67,7 +66,7 @@ const ProfilePost = () => {
   return (
     <>
       <div className="flex flex-col w-full gap-6 mt-28 overflow-auto mx-4 mb-4">
-        {loading ? (
+        {loadingPostById ? (
           <PostSkeleton />
         ) : (
           postsById.map((item, index) => (
