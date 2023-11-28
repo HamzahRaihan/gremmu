@@ -4,11 +4,15 @@ import { FaChevronRight } from 'react-icons/fa';
 import ProfileSidebarMobile from './ProfileSidebarMobile';
 import ProfileStats from './ProfileStats';
 import { Spinner } from 'flowbite-react';
+import Button from '../../layout/Button';
+import { useParams } from 'react-router-dom';
 
 const ProfileSidebar = () => {
-  const { userById, loadingUser } = useContext(UserContext);
+  const { userData, userById, handleLogout, loadingUser } = useContext(UserContext);
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const { userId } = useParams();
 
   const handleSidebar = (e) => {
     e.preventDefault();
@@ -48,6 +52,11 @@ const ProfileSidebar = () => {
               </p>
               <ProfileStats userById={userById} desktop="desktop" />
             </>
+          )}
+          {userId == userData?.id && (
+            <div className="max-[980px]:hidden">
+              <Button type="daftar" title="Log out" onClick={handleLogout} />
+            </div>
           )}
         </div>
       </div>
