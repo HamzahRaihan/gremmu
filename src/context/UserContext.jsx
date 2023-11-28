@@ -29,6 +29,7 @@ export const UserContextProvider = ({ children }) => {
 
   const { userId } = useParams();
 
+  // get token user
   useEffect(() => {
     const loginToken = JSON.stringify(localStorage.getItem(TOKEN));
     const user = JSON.parse(localStorage.getItem(ACCOUNT_KEY));
@@ -41,6 +42,7 @@ export const UserContextProvider = ({ children }) => {
     }
   }, []);
 
+  // get all users data (user posts, comments, likes, etc.)
   useEffect(() => {
     const getUsers = async () => {
       await axios
