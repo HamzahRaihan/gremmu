@@ -26,6 +26,7 @@ const ProfileSidebar = () => {
           <button className="flex items-center gap-3 min-[980px]:hidden transition-all hover:bg-neutral-100 active:bg-neutral-200 rounded" onClick={handleSidebar}>
             <FaChevronRight />
           </button>
+
           <div className={`fixed z-50 top-0 right-0 h-screen w-full  ${!isOpen ? '-translate-x-full duration-300 transition-all ease-in' : 'translate-x-0 duration-300 transition-all ease-in'}`}>
             <button className="fixed bg-black opacity-30 h-screen w-full -z-10" onClick={handleSidebar}>
               <FaChevronRight />
