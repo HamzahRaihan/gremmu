@@ -13,6 +13,8 @@ import { UserBadge } from '../Profile/UserBadge';
 const Posts = () => {
   const { userData } = useContext(UserContext);
   const { posts, loading, handleLike, handleDislike, button, setPostId, handleDeletePost } = useContext(PostContext);
+  console.log('🚀 ~ file: Posts.jsx:16 ~ Posts ~ posts:', posts);
+  console.log('🚀 ~ file: Posts.jsx:16 ~ Posts ~ loading:', loading);
 
   const [likeCount, setLikeCount] = useState(posts.map((post) => post.Likes?.length || 0));
   const [isOpen, setIsOpen] = useState(false);
