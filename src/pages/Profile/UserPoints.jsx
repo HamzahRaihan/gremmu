@@ -10,7 +10,7 @@ export const UserPoints = (props) => {
   } else if (userById.points < 300) {
     return <p>{userById.points} / 300</p>;
   } else {
-    return <p>Some other content</p>;
+    return <p>Level Max</p>;
   }
 };
 
