@@ -1,7 +1,7 @@
 import { Tooltip } from 'flowbite-react';
 import PropTypes from 'prop-types';
-import { HiCheckBadge } from 'react-icons/hi2';
 import { UserPoints } from './UserPoints';
+import { UserBadge } from './UserBadge';
 
 const ProfileStats = (props) => {
   const { userById, desktop } = props;
@@ -25,8 +25,13 @@ const ProfileStats = (props) => {
             </div>
 
             <div className="border-t w-full border-neutral-400 pb-2 pt-2">
-              {userById.points < 100 && <div>Belum punya badge</div>}
-              {userById.points >= 100 && <HiCheckBadge />}
+              {userById.points < 100 ? (
+                <div>belum punya badge</div>
+              ) : (
+                <div className="w-20">
+                  <UserBadge userById={userById} />
+                </div>
+              )}
             </div>
           </div>
         </>
@@ -38,7 +43,7 @@ const ProfileStats = (props) => {
 };
 
 ProfileStats.propTypes = {
-  userById: PropTypes.object,
+  userById: PropTypes.any,
   desktop: PropTypes.string,
 };
 
