@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const [isPageTop, setIsPageTop] = useState(true);
-  const { userData, handleLogout } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
   const previousCurrentScrollPosition = useRef(0);
 
   useEffect(() => {
@@ -73,9 +73,13 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <div>
-              <Button type="daftar" title="Keluar" onClick={handleLogout} />
-            </div>
+            <Link to={`/user/${userData.id}`}>
+              <img
+                className="rounded-full w-10 max-[980px]:hidden"
+                src={`${userData.image ? userData.image : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'}`}
+                alt="profile-img"
+              />
+            </Link>
           )}
         </div>
         <button className="flex items-center gap-3 min-[980px]:hidden transition-all hover:bg-neutral-100 active:bg-neutral-200 rounded" onClick={handleSidebar}>
