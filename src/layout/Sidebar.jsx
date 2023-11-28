@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 
 function Sidebar() {
-  const { userData, handleLogout } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
 
   return (
     <div className="p-4 fixed z-50 right-0 h-screen w-96 max-[400px]:w-72 max-[300px]:w-52 bg-white ">
@@ -35,9 +35,13 @@ function Sidebar() {
           </Link>
         </div>
       ) : (
-        <div className="mt-10">
-          <Button type="daftar" title="Keluar" onClick={handleLogout} />
-        </div>
+        <Link to={`/user/${userData.id}`}>
+          <img
+            className="rounded-full w-20 mt-5"
+            src={`${userData.image ? userData.image : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'}`}
+            alt="profile-img"
+          />
+        </Link>
       )}
     </div>
   );
