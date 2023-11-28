@@ -33,6 +33,7 @@ export const PostContextProvider = ({ children }) => {
   const [commentsByPost, setCommentsByPost] = useState([]);
   const [postId, setPostId] = useState(1);
   const [postsById, setPostsById] = useState([]);
+  console.log('🚀 ~ file: PostContext.jsx:36 ~ PostContextProvider ~ postsById:', postsById);
 
   const token = localStorage.getItem(TOKEN);
 
@@ -49,11 +50,11 @@ export const PostContextProvider = ({ children }) => {
       .then((response) => {
         const postsData = response.data.data;
         setPosts(postsData);
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Internal server error', error.message);
       });
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -70,20 +71,20 @@ export const PostContextProvider = ({ children }) => {
     getDetailedPostById();
   }, [postId]);
 
+  const getPostsByUserId = async () => {
+    await axios
+      .get(`https://backend-final-project-eight.vercel.app/users/${userId}/posts`)
+      .then((response) => {
+        setPostsById(response.data.data);
+      })
+      .catch((error) => {
+        console.error('Internal server error', error.message);
+      });
+  };
   useEffect(() => {
-    const getPostsByUserId = async () => {
-      setLoading(true);
-      await axios
-        .get(`https://backend-final-project-eight.vercel.app/users/${userId}/posts`)
-        .then((response) => {
-          setPostsById(response.data.data);
-        })
-        .catch((error) => {
-          console.error('Internal server error', error.message);
-        });
-      setLoading(false);
-    };
+    setLoading(true);
     getPostsByUserId();
+    setLoading(false);
   }, [userId]);
 
   // Render Comments
@@ -157,6 +158,8 @@ export const PostContextProvider = ({ children }) => {
       )
       .catch((error) => console.error(error.message));
     await getPosts();
+    await getPostsByUserId();
+
     setButton(false);
   };
 
@@ -171,6 +174,8 @@ export const PostContextProvider = ({ children }) => {
       })
       .catch((error) => console.error(error.message));
     await getPosts();
+    await getPostsByUserId();
+
     setButton(false);
   };
 
