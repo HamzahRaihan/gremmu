@@ -1,5 +1,4 @@
 import { Link, NavLink } from 'react-router-dom';
-import { Link, NavLink } from 'react-router-dom';
 import Button from './Button';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
@@ -13,11 +12,9 @@ function Sidebar() {
         <NavLink to="/" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
           Beranda
         </NavLink>
-        <NavLink to="tentang" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
-        <NavLink to="tentang" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
+        <NavLink to="/tentang-kami" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
           Tentang Kami
         </NavLink>
-        <NavLink to="berita" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
         <NavLink to="berita" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
           Berita
         </NavLink>
