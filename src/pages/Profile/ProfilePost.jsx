@@ -68,6 +68,8 @@ const ProfilePost = () => {
       <div className="flex flex-col w-full gap-6 mt-28 overflow-auto mx-4 mb-4">
         {loadingPostById ? (
           <PostSkeleton />
+        ) : postsById.length == 0 ? (
+          <div className="flex justify-center items-center h-full text-neutral-600">tidak ada data</div>
         ) : (
           postsById.map((item, index) => (
             <div className="flex gap-5" key={item.id}>
