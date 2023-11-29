@@ -1,13 +1,9 @@
-import React from "react";
-import { ContactUs } from "../../components/ContactUs";
-import Footer from "../../layout/Footer";
-import Navbar from "../../layout/Navbar";
+import { ContactUs } from '../../components/ContactUs';
 
 const AboutUs = () => {
   return (
     <>
-      <Navbar />
-      <div className="flex justify-center pt-20 px-20">
+      <div className="flex justify-center pt-20 max-w-5xl px-2 m-auto">
         <div className="p-5 text-center bg-body-tertiary">
           <div className="py-5 my-5">
             <h1 className="text-3xl font-bold p-6">Tentang Kami</h1>
@@ -19,7 +15,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row px-20 h-auto">
+      <div className="flex flex-col md:flex-row px-5 h-auto max-w-5xl m-auto">
         <div className="md:w-1/2">
           <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/hero-aboutus.png?updatedAt=1697193730049" alt="Image" className="w-[800px] h-[700px] sm:w-full object-cover mb-4" />
         </div>
@@ -55,11 +51,11 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className=" text-center">
+      <div className="text-center">
         <div className="text-black text-3xl sm:text-4xl font-bold leading-[60px] py-12">
           <h2 className="py-3">Temui Tim</h2>
         </div>
-        <div className="flex flex-wrap justify-center gap-10">
+        <div className="flex flex-wrap justify-center gap-10 ">
           <div className="border rounded-lg p-4 hover:shadow-lg">
             <img src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/male.png?updatedAt=1697361198103" className="w-80 h-80 object-cover rounded-full mb-4" alt="Hamzah Raihan Ikhsanul Fikri" />
             <div>
@@ -85,7 +81,6 @@ const AboutUs = () => {
       </div>
 
       <ContactUs />
-      <Footer />
     </>
   );
 };
