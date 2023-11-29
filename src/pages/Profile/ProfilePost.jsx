@@ -117,7 +117,7 @@ const ProfilePost = () => {
                           return newCounts;
                         });
                       } else {
-                        handleAddLike(item.id, userData.id);
+                        handleAddLike(item.id, userData?.id);
                         setLikeCount((prevCounts) => {
                           const newCounts = [...prevCounts];
                           newCounts[index]++;
