@@ -10,6 +10,7 @@ import Dampak from './pages/Information/Dampak.jsx';
 import Solusi from './pages/Information/Solusi.jsx';
 import Community from './pages/Community/Community.jsx';
 import Profile from './pages/Profile/Profile.jsx';
+import Petition from './pages/Petition/Petition.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/solusi',
         element: <Solusi />,
+      },
+      {
+        path: '/petisi',
+        element: <Petition />,
       },
       {
         path: '/komunitas',
