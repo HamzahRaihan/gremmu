@@ -6,7 +6,6 @@ import { DetailPetitionSkeleton } from '../../layout/Skeleton';
 
 const DetailPetition = () => {
   const { detailPetition, loading } = useContext(PetitionContext);
-  console.log('🚀 ~ file: DetailPetition.jsx:6 ~ DetailPetition ~ detailPetition:', detailPetition);
   return (
     <div className="lg:max-w-5xl md:max-w-3xl pt-32 pb-10 m-auto flex flex-col gap-6 px-2">
       {loading ? (
