@@ -12,6 +12,7 @@ import Community from './pages/Community/Community.jsx';
 import Profile from './pages/Profile/Profile.jsx';
 import Petition from './pages/Petition/Petition.jsx';
 import DetailPetition from './pages/Petition/DetailPetition.jsx';
+import AboutUs from './pages/AboutUs/Aboutus.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/solusi',
         element: <Solusi />,
+      },
+      {
+        path: '/tentang-kami',
+        element: <AboutUs />,
       },
       {
         path: '/petisi',
