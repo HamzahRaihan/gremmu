@@ -11,6 +11,7 @@ import Solusi from './pages/Information/Solusi.jsx';
 import Community from './pages/Community/Community.jsx';
 import Profile from './pages/Profile/Profile.jsx';
 import Petition from './pages/Petition/Petition.jsx';
+import DetailPetition from './pages/Petition/DetailPetition.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/petisi',
         element: <Petition />,
+      },
+      {
+        path: '/petisi/:id',
+        element: <DetailPetition />,
       },
       {
         path: '/komunitas',
