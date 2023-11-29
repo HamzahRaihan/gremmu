@@ -45,6 +45,7 @@ export const PetitionContextProvider = ({ children }) => {
   }, []);
 
   const getPetitionByID = async () => {
+    setLoading(true);
     await axios
       .get(`https://backend-final-project-fs13.vercel.app/petitions/${id ? id : 1}`)
       .then((response) => {
