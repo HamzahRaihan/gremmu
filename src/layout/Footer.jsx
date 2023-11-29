@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ButtonFooter from './ButtonFooter';
 import { FaXTwitter, FaSquareFacebook, FaDiscord, FaInstagram } from 'react-icons/fa6';
 
@@ -27,12 +28,21 @@ const Footer = () => {
               <div className="relative w-fit font-bold text-[#ffffff] text-[16px] text-center tracking-[0] leading-[24px] whitespace-nowrap">Halaman</div>
             </header>
             <div className="flex-wrap gap-[17px_5px] self-stretch w-full flex-[0_0_auto] flex items-start relative">
-              <ButtonFooter property1="normal" text="Beranda" />
-              <ButtonFooter property1="normal" text="Tentang Kami" />
-              <ButtonFooter property1="normal" text="Berita" />
-              <ButtonFooter property1="normal" text="Video" />
-              <ButtonFooter property1="normal" text="Kuis" />
-              <ButtonFooter property1="normal" text="Komunitas" />
+              <Link to="/">
+                <ButtonFooter property1="normal" text="Beranda" />
+              </Link>
+              <Link to="/tentang-kami">
+                <ButtonFooter property1="normal" text="Tentang Kami" />
+              </Link>
+              <Link to="/berita">
+                <ButtonFooter property1="normal" text="Berita" />
+              </Link>
+              <Link to="/petisi">
+                <ButtonFooter property1="normal" text="Petisi" />
+              </Link>
+              <Link to="/komunitas">
+                <ButtonFooter property1="normal" text="Komunitas" />
+              </Link>
             </div>
           </div>
         </div>
