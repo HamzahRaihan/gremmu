@@ -6,39 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-
-const data = [
-  {
-    id: 1,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-  {
-    id: 2,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-  {
-    id: 3,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-  {
-    id: 4,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-  {
-    id: 5,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-  {
-    id: 6,
-    imageUrl: 'https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/news1.jpeg?updatedAt=1700557487550',
-    description: 'Synchronising scrum masters with the possibility to surprise and delight to the surprise and delight scrum masters.',
-  },
-];
+import { recentnews } from '../data/recentnews';
 
 const formatDate = () => {
   const currentDate = new Date();
@@ -75,7 +43,7 @@ const NewsCarousel = () => {
           }}
           pagination={{ clickable: true }}
         >
-          {data.map((item) => (
+          {recentnews.map((item) => (
             <SwiperSlide key={item.id} className="relative">
               <div className="flex items-end h-64">
                 <img src={item.imageUrl} alt={formatDate()} className="object-cover w-full h-full rounded" />
