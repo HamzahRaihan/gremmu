@@ -27,7 +27,7 @@ export const UserPoints = (props) => {
   } else if (userById.points < 300) {
     return (
       <div className="flex flex-col">
-        <Progress progress={userById.points} color="green" />
+        <Progress progress={userById.points == 200 ? 0 : userById.points / 10} color="green" />
         <div className="flex justify-between">
           <p>{userById.points}</p>
           <p>300</p>
