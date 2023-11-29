@@ -8,7 +8,7 @@ const ProfileStats = (props) => {
 
   return (
     <div className={`flex flex-col w-full justify-between p-4 rounded-md gap-4 ${desktop && 'max-[980px]:hidden'}`}>
-      {userById.points > 0 ? (
+      {userById.points >= 0 ? (
         <>
           <div className="flex w-full flex-col bg-white p-2 rounded-lg">
             <h1>Total Poin</h1>
