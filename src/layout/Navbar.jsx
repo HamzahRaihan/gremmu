@@ -88,7 +88,7 @@ const Navbar = () => {
       </div>
       <div className={`fixed z-10 top-0 h-screen w-full lg:hidden ${!isOpen ? 'translate-x-full duration-300 transition-all ease-in' : 'translate-x-0 duration-300 transition-all ease-in'}`}>
         <button className="fixed bg-black opacity-30 h-screen w-full -z-0" onClick={handleSidebar}></button>
-        <Sidebar />
+        <Sidebar handleSidebar={handleSidebar} />
       </div>
     </>
   );
