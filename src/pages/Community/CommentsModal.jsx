@@ -6,9 +6,10 @@ import { formatDate } from '../../utils/Utils';
 import Button from '../../layout/Button';
 import { UserContext } from '../../context/UserContext';
 import { CommentSkeleton } from '../../layout/Skeleton';
+import { Spinner } from 'flowbite-react';
 
 const CommentsModal = (props) => {
-  const { commentsByPost, detailedPost, loadingDetailed, handleComment, buttonComment } = useContext(PostContext);
+  const { commentsByPost, detailedPost, loading, loadingComments, handleComment, buttonComment } = useContext(PostContext);
   const { userData } = useContext(UserContext);
   const [comment, setComment] = useState('');
 
@@ -28,7 +29,7 @@ const CommentsModal = (props) => {
               <BsFullscreenExit />
             </button>
           </div>
-          {loadingDetailed ? (
+          {loading ? (
             <CommentSkeleton />
           ) : (
             <div className="flex flex-col gap-10 overflow-y-auto overflow-x-hidden overscroll-none z-50 py-10 px-10 h-full">
@@ -53,7 +54,11 @@ const CommentsModal = (props) => {
               <div className="bg-neutral-100 p-5 rounded-lg">
                 <div className="border-b border-neutral-800 pb-2 mb-2">Komentar</div>
 
-                {commentsByPost.length > 0 ? (
+                {loadingComments ? (
+                  <div className="flex w-full justify-center">
+                    <Spinner />
+                  </div>
+                ) : commentsByPost.length > 0 ? (
                   commentsByPost.map((item) => (
                     <div className="flex gap-2 mb-3" key={item.id}>
                       <div className="flex flex-col justify-center items-center h-full overflow-auto ">
