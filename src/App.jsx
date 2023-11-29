@@ -1,16 +1,28 @@
-import Home from "./components/Home.jsx";
-import Navbar from "./components/Navbar";
-import Companies from "./components/Companies.jsx"
-import Description from "./components/Description.jsx";
+import { Outlet } from 'react-router-dom';
+import Navbar from './layout/Navbar';
+import { UserContextProvider } from './context/UserContext';
+import Footer from './layout/Footer';
+import { PostContextProvider } from './context/PostContext';
+import { PetitionContextProvider } from './context/PetitionContext';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
-    <div>
-      <Navbar/>
-      <Home/>
-      <Companies/>
-      <Description/>
-     
+    <div className="flex flex-col">
+      <div className="flex-1">
+        <UserContextProvider>
+          <PostContextProvider>
+            <PetitionContextProvider>
+              <Navbar />
+              <Outlet />
+              <div className="flex-shrink-0">
+                <Footer />
+              </div>
+              <Toaster />
+            </PetitionContextProvider>
+          </PostContextProvider>
+        </UserContextProvider>
+      </div>
     </div>
   );
 };
