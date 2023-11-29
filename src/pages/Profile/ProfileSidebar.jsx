@@ -27,7 +27,7 @@ const ProfileSidebar = () => {
     <div className="sticky top-0 flex items-center h-screen gap-28">
       <div className="h-screen bg-neutral-100 w-72 max-[980px]:w-10">
         <div className="flex flex-col gap-4 items-center mt-28">
-          <button className="flex items-center gap-3 min-[980px]:hidden transition-all hover:bg-neutral-100 active:bg-neutral-200 rounded" onClick={handleSidebar}>
+          <button className="flex justify-center items-center h-full w-full py-52 gap-3 min-[980px]:hidden transition-all hover:bg-neutral-100 active:bg-neutral-200 rounded" onClick={handleSidebar}>
             <FaChevronRight />
           </button>
 
