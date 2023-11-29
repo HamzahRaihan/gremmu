@@ -48,6 +48,7 @@ const CommentsModal = (props) => {
                     {detailedPost.User.firstName} {detailedPost.User.lastName} • <span className="font-medium">{formatDate(detailedPost.createdAt)}</span>
                   </h1>
                   <h1>{detailedPost.post}</h1>
+                  <img className="w-72" src={detailedPost.image} alt="" />
                 </div>
               </div>
 
