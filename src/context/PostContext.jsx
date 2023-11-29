@@ -15,6 +15,7 @@ export const PostContext = createContext({
   loading: true,
   loadingDetailed: true,
   loadingPostById: true,
+  loadingComments: true,
   button: true,
   buttonPost: true,
   buttonComment: true,
@@ -30,12 +31,12 @@ export const PostContextProvider = ({ children }) => {
   const [commentsByPost, setCommentsByPost] = useState([]);
   const [postId, setPostId] = useState(1);
   const [postsById, setPostsById] = useState([]);
-  console.log('🚀 ~ file: PostContext.jsx:36 ~ PostContextProvider ~ postsById:', postsById);
 
   // loading state
   const [loading, setLoading] = useState(true);
   const [loadingDetailed, setLoadingDetailed] = useState(true);
   const [loadingPostById, setLoadingPostById] = useState(true);
+  const [loadingComments, setLoadingComments] = useState(true);
 
   // loading state for button after clicked
   const [button, setButton] = useState(false);
@@ -55,8 +56,8 @@ export const PostContextProvider = ({ children }) => {
       .get('https://backend-final-project-fs13.vercel.app/posts')
       .then((response) => {
         const postsData = response.data.data;
-        setLoading(false);
         setPosts(postsData);
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Internal server error', error.message);
@@ -68,12 +69,11 @@ export const PostContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    setLoadingDetailed(true);
     const getDetailedPostById = async () => {
       const { data } = await axios.get(`https://backend-final-project-fs13.vercel.app/posts/${postId}`);
       setDetailedPost(data.data);
+      setLoadingDetailed(false);
     };
-    setLoadingDetailed(false);
     getDetailedPostById();
   }, [postId]);
 
@@ -94,17 +94,18 @@ export const PostContextProvider = ({ children }) => {
 
   // Render Comments
   useEffect(() => {
+    setLoadingComments(true);
     const getCommentsByPostId = async () => {
       await axios
         .get(`https://backend-final-project-fs13.vercel.app/comments/${postId}/posts`)
         .then((response) => {
           const data = response.data.data;
           setCommentsByPost(data);
+          setLoadingComments(false);
         })
         .catch((error) => {
           console.error('Internal server error', error.message);
         });
-      setLoading(false);
     };
     getCommentsByPostId();
   }, [postId]);
@@ -244,6 +245,7 @@ export const PostContextProvider = ({ children }) => {
         loading,
         loadingDetailed,
         loadingPostById,
+        loadingComments,
         button,
         buttonPost,
         buttonComment,
