@@ -3,9 +3,9 @@ import { useContext, useState } from 'react';
 import { PostContext } from '../../context/PostContext';
 import { BsFullscreenExit } from 'react-icons/bs';
 import { formatDate } from '../../utils/Utils';
-import { CommentSkeleton } from '../../utils/Skeleton';
 import Button from '../../layout/Button';
 import { UserContext } from '../../context/UserContext';
+import { CommentSkeleton } from '../../layout/Skeleton';
 
 const CommentsModal = (props) => {
   const { commentsByPost, detailedPost, loadingDetailed, handleComment, buttonComment } = useContext(PostContext);
