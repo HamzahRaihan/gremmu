@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import { RiChat1Line, RiTreeLine } from 'react-icons/ri';
 import { PostContext } from '../../context/PostContext';
 import { formatDate } from '../../utils/Utils';
-import { PostSkeleton } from '../../utils/Skeleton';
 import { UserContext } from '../../context/UserContext';
 import CommentsModal from '../Community/CommentsModal';
 import { BsThreeDots } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { UserBadge } from './UserBadge';
+import { PostSkeleton } from '../../layout/Skeleton';
 
 const ProfilePost = () => {
   const { userData } = useContext(UserContext);
