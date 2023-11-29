@@ -36,7 +36,7 @@ const HeroSection = () => {
 
           <p className="py-2 text-lg ">GreenWorldAware adalah website untuk anda yang sadar lingkungan, memberikan informasi, tips, dan wadah untuk membantu anda membuat kontribusi kebersihan demi bumi yang lebih bersih.</p>
           <div>
-            <Button type="daftar" title="Sign Up" />
+            <Button type="daftar" title="Daftar" />
           </div>
         </div>
         <div className="flex justify-center max-[980px]:order-first">
