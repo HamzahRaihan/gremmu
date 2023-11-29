@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { ACCOUNT_KEY, TOKEN } from '../constants/Key';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export const PostContext = createContext({
   handlePost: async () => {},
@@ -126,19 +127,33 @@ export const PostContextProvider = ({ children }) => {
           },
         }
       )
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        if (error.response.status === 403) {
+          toast.error('Kamu belum login');
+        } else {
+          toast.error(error.message);
+        }
+      });
     await getPosts();
     setButtonPost(false);
   };
 
   const handleDeletePost = async (id) => {
     setLoading(true);
-    await axios.delete(`https://backend-final-project-fs13.vercel.app/posts/${id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    await axios
+      .delete(`https://backend-final-project-fs13.vercel.app/posts/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((error) => {
+        if (error.response.status === 403) {
+          toast.error('Kamu belum login');
+        } else {
+          toast.error(error.message);
+        }
+      });
     await getPosts();
     setLoading(false);
   };
@@ -160,7 +175,13 @@ export const PostContextProvider = ({ children }) => {
           },
         }
       )
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        if (error.response.status === 403) {
+          toast.error('Kamu belum login');
+        } else {
+          toast.error(error.message);
+        }
+      });
     await getPosts();
     await getPostsByUserId();
     setButton(false);
@@ -184,20 +205,28 @@ export const PostContextProvider = ({ children }) => {
   // Handle Comment
   const handleComment = async (comment) => {
     setButtonComment(true);
-    const { data } = await axios.post(
-      'https://backend-final-project-fs13.vercel.app/comments',
-      {
-        postId: postId,
-        userId: id,
-        comment: comment,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+    const { data } = await axios
+      .post(
+        'https://backend-final-project-fs13.vercel.app/comments',
+        {
+          postId: postId,
+          userId: id,
+          comment: comment,
         },
-      }
-    );
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .catch((error) => {
+        if (error.response.status === 403) {
+          toast.error('Kamu belum login');
+        } else {
+          toast.error(error.message);
+        }
+      });
     setCommentsByPost((prevComments) => [...prevComments, data.data]);
     await getPosts();
     setButtonComment(false);
