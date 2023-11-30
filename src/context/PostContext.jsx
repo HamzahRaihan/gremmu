@@ -1,9 +1,9 @@
-import { createContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
-import { ACCOUNT_KEY, TOKEN } from '../constants/Key';
-import { useParams } from 'react-router-dom';
-import toast from 'react-hot-toast';
+import { createContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
+import { ACCOUNT_KEY, TOKEN } from "../constants/Key";
+import { useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export const PostContext = createContext({
   handlePost: async () => {},
@@ -60,7 +60,7 @@ export const PostContextProvider = ({ children }) => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Internal server error', error.message);
+        console.error("Internal server error", error.message);
       });
   };
 
@@ -85,7 +85,7 @@ export const PostContextProvider = ({ children }) => {
         setLoadingPostById(false);
       })
       .catch((error) => {
-        console.error('Internal server error', error.message);
+        console.error("Internal server error", error.message);
       });
   };
   useEffect(() => {
@@ -104,7 +104,7 @@ export const PostContextProvider = ({ children }) => {
           setLoadingComments(false);
         })
         .catch((error) => {
-          console.error('Internal server error', error.message);
+          console.error("Internal server error", error.message);
         });
     };
     getCommentsByPostId();
@@ -115,7 +115,7 @@ export const PostContextProvider = ({ children }) => {
     setButtonPost(true);
     await axios
       .post(
-        '${import.meta.env.VITE_BASE_URL}/posts',
+        `${import.meta.env.VITE_BASE_URL}/posts`,
         {
           post,
           image: fileUrl,
@@ -123,14 +123,14 @@ export const PostContextProvider = ({ children }) => {
         },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         }
       )
       .catch((error) => {
         if (error.response.status === 403) {
-          toast.error('Kamu belum login');
+          toast.error("Kamu belum login");
         } else {
           toast.error(error.message);
         }
@@ -144,13 +144,13 @@ export const PostContextProvider = ({ children }) => {
     await axios
       .delete(`${import.meta.env.VITE_BASE_URL}/posts/${id}`, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       })
       .catch((error) => {
         if (error.response.status === 403) {
-          toast.error('Kamu belum login');
+          toast.error("Kamu belum login");
         } else {
           toast.error(error.message);
         }
@@ -171,14 +171,14 @@ export const PostContextProvider = ({ children }) => {
         },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         }
       )
       .catch((error) => {
         if (error.response.status === 403) {
-          toast.error('Kamu belum login');
+          toast.error("Kamu belum login");
         } else {
           toast.error(error.message);
         }
@@ -193,7 +193,7 @@ export const PostContextProvider = ({ children }) => {
     await axios
       .delete(`${import.meta.env.VITE_BASE_URL}/likes/${id}`, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       })
@@ -216,14 +216,14 @@ export const PostContextProvider = ({ children }) => {
         },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         }
       )
       .catch((error) => {
         if (error.response.status === 403) {
-          toast.error('Kamu belum login');
+          toast.error("Kamu belum login");
         } else {
           toast.error(error.message);
         }
