@@ -17,7 +17,7 @@ function Sidebar(props) {
         <NavLink to="/tentang-kami" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
           Tentang Kami
         </NavLink>
-        <NavLink to="berita" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
+        <NavLink to="/berita" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
           Berita
         </NavLink>
         <NavLink to="/petisi" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">

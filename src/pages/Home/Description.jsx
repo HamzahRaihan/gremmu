@@ -3,7 +3,7 @@ import Button from '../../layout/Button';
 
 const Description = () => {
   return (
-    <div className="w-full bg-white max-w-7xl m-auto px-5">
+    <div className="w-full bg-white max-w-5xl m-auto px-5">
       <h1 className="text-center text-2xl font-bold pb-10">Mengapa Kita Harus Menjaga Kebersihan</h1>
       <p className="text-center max-md:text-justify text-xl leading-8">
         Mencegah pencemaran limbah bukan sekedar pilihan; itu suatu keharusan. Dengan meminimalkan polusi, kita melindungi keseimbangan ekosistem,memastikan udara dan air lebih bersih, dan berupaya mewujudkan dunia di mana alam tumbuh subur

@@ -52,7 +52,7 @@ const Navbar = () => {
           <NavLink to="/tentang-kami" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
             Tentang Kami
           </NavLink>
-          <NavLink to="berita" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
+          <NavLink to="/berita" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
             Berita
           </NavLink>
           <NavLink to="/petisi" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>

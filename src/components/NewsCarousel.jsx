@@ -15,7 +15,7 @@ const formatDate = () => {
 
 const NewsCarousel = () => {
   return (
-    <div className="max-w-7xl px-5 m-auto flex justify-between items-center mb-10 ">
+    <div className="max-w-5xl px-5 m-auto flex justify-between items-center mb-10 ">
       <div className="w-full ">
         <div className="flex justify-between items-center">
           <h2 className="font-bold text-3xl mb-6">Berita Terkini</h2>

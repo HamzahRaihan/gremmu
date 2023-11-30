@@ -13,6 +13,7 @@ import Profile from './pages/Profile/Profile.jsx';
 import Petition from './pages/Petition/Petition.jsx';
 import DetailPetition from './pages/Petition/DetailPetition.jsx';
 import AboutUs from './pages/AboutUs/Aboutus.jsx';
+import News from './pages/News/News.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/tentang-kami',
         element: <AboutUs />,
+      },
+      {
+        path: '/berita',
+        element: <News />,
       },
       {
         path: '/petisi',
