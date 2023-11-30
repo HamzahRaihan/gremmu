@@ -46,7 +46,7 @@ export const UserContextProvider = ({ children }) => {
   useEffect(() => {
     const getUsers = async () => {
       await axios
-        .get('https://backend-final-project-eight.vercel.app/users')
+        .get(`${import.meta.env.VITE_BASE_URL}/users`)
         .then((response) => {
           setUsers(response.data.data);
         })
@@ -61,7 +61,7 @@ export const UserContextProvider = ({ children }) => {
     setLoadingUser(true);
     const getUserById = async () => {
       await axios
-        .get(`https://backend-final-project-eight.vercel.app/users/${userId ? userId : 1}`)
+        .get(`${import.meta.env.VITE_BASE_URL}/users/${userId ? userId : 1}`)
         .then((response) => {
           setUserById(response.data.data);
           setLoadingUser(false);
@@ -81,7 +81,7 @@ export const UserContextProvider = ({ children }) => {
     } else {
       await axios
         .post(
-          'https://backend-final-project-eight.vercel.app/users/login',
+          `${import.meta.env.VITE_BASE_URL}/users/login`,
           {
             email,
             password,
@@ -133,7 +133,7 @@ export const UserContextProvider = ({ children }) => {
     } else {
       await axios
         .post(
-          'https://backend-final-project-eight.vercel.app/users',
+          `${import.meta.env.VITE_BASE_URL}/users`,
           {
             firstName,
             lastName,

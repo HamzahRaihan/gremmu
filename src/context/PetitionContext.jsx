@@ -30,7 +30,7 @@ export const PetitionContextProvider = ({ children }) => {
   const getPetitions = async () => {
     setLoading(true);
     await axios
-      .get('https://backend-final-project-fs13.vercel.app/petitions')
+      .get(`${import.meta.env.VITE_BASE_URL}/petitions`)
       .then((response) => {
         const petitionsData = response.data.data;
         setPetitions(petitionsData);
@@ -47,7 +47,7 @@ export const PetitionContextProvider = ({ children }) => {
   const getPetitionByID = async () => {
     setLoading(true);
     await axios
-      .get(`https://backend-final-project-fs13.vercel.app/petitions/${id ? id : 1}`)
+      .get(`${import.meta.env.VITE_BASE_URL}/petitions/${id ? id : 1}`)
       .then((response) => {
         const petitionDetailData = response.data.data;
         setDetailPetition(petitionDetailData);
@@ -66,7 +66,7 @@ export const PetitionContextProvider = ({ children }) => {
     setLoadingButton(true);
     await axios
       .post(
-        'https://backend-final-project-fs13.vercel.app/signatures',
+        `${import.meta.env.VITE_BASE_URL}/signatures`,
         {
           petitionId,
           userId: userData?.id,

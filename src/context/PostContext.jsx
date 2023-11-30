@@ -53,7 +53,7 @@ export const PostContextProvider = ({ children }) => {
   // Render Posts
   const getPosts = async () => {
     await axios
-      .get('https://backend-final-project-fs13.vercel.app/posts')
+      .get(`${import.meta.env.VITE_BASE_URL}/posts`)
       .then((response) => {
         const postsData = response.data.data;
         setPosts(postsData);
@@ -70,7 +70,7 @@ export const PostContextProvider = ({ children }) => {
 
   useEffect(() => {
     const getDetailedPostById = async () => {
-      const { data } = await axios.get(`https://backend-final-project-fs13.vercel.app/posts/${postId}`);
+      const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/posts/${postId}`);
       setDetailedPost(data.data);
       setLoadingDetailed(false);
     };
@@ -79,7 +79,7 @@ export const PostContextProvider = ({ children }) => {
 
   const getPostsByUserId = async () => {
     await axios
-      .get(`https://backend-final-project-eight.vercel.app/users/${userId}/posts`)
+      .get(`${import.meta.env.VITE_BASE_URL}/users/${userId}/posts`)
       .then((response) => {
         setPostsById(response.data.data);
         setLoadingPostById(false);
@@ -97,7 +97,7 @@ export const PostContextProvider = ({ children }) => {
     setLoadingComments(true);
     const getCommentsByPostId = async () => {
       await axios
-        .get(`https://backend-final-project-fs13.vercel.app/comments/${postId}/posts`)
+        .get(`${import.meta.env.VITE_BASE_URL}/comments/${postId}/posts`)
         .then((response) => {
           const data = response.data.data;
           setCommentsByPost(data);
@@ -115,7 +115,7 @@ export const PostContextProvider = ({ children }) => {
     setButtonPost(true);
     await axios
       .post(
-        'https://backend-final-project-fs13.vercel.app/posts',
+        '${import.meta.env.VITE_BASE_URL}/posts',
         {
           post,
           image: fileUrl,
@@ -142,7 +142,7 @@ export const PostContextProvider = ({ children }) => {
   const handleDeletePost = async (id) => {
     setLoading(true);
     await axios
-      .delete(`https://backend-final-project-fs13.vercel.app/posts/${id}`, {
+      .delete(`${import.meta.env.VITE_BASE_URL}/posts/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -164,7 +164,7 @@ export const PostContextProvider = ({ children }) => {
     setButton(true);
     await axios
       .post(
-        'https://backend-final-project-eight.vercel.app/likes',
+        `${import.meta.env.VITE_BASE_URL}/likes`,
         {
           postId,
           userId,
@@ -191,7 +191,7 @@ export const PostContextProvider = ({ children }) => {
   const handleDislike = async (id) => {
     setButton(true);
     await axios
-      .delete(`https://backend-final-project-eight.vercel.app/likes/${id}`, {
+      .delete(`${import.meta.env.VITE_BASE_URL}/likes/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -208,7 +208,7 @@ export const PostContextProvider = ({ children }) => {
     setButtonComment(true);
     const { data } = await axios
       .post(
-        'https://backend-final-project-fs13.vercel.app/comments',
+        `${import.meta.env.VITE_BASE_URL}/comments`,
         {
           postId: postId,
           userId: id,
