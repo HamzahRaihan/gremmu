@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 
 const ProfileSidebarMobile = () => {
   const { userData, userById, handleLogout } = useContext(UserContext);
-  console.log('🚀 ~ file: ProfileSidebarMobile.jsx:8 ~ ProfileSidebarMobile ~ userData:', userData);
 
   const { userId } = useParams();
 
