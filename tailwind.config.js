@@ -6,8 +6,8 @@ export default {
       colors: {
         brightColor: "#F4F7FF",
         backgroundColor: "#EFFFFA",
-        green:{
-          500:'#11BB60'
+        green: {
+          500: "#11BB60",
         },
       },
     },
