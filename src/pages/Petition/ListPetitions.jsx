@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const ListPetitions = () => {
   const { petitions, loading } = useContext(PetitionContext);
-  console.log('🚀 ~ file: ListPetitions.jsx:6 ~ ListPetitions ~ petitions:', petitions);
   return (
     <div className="grid grid-cols-1 gap-4">
       {loading ? (
