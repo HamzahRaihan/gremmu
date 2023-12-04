@@ -15,9 +15,7 @@ const App = () => {
             <PetitionContextProvider>
               <Navbar />
               <Outlet />
-              <div className="flex-shrink-0">
-                <Footer />
-              </div>
+              <Footer />
               <Toaster />
             </PetitionContextProvider>
           </PostContextProvider>
