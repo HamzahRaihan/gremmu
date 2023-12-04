@@ -24,7 +24,7 @@ const ProfileSidebar = () => {
   };
 
   return (
-    <div className="sticky max-[980px]:fixed top-0 flex items-center h-screen gap-28">
+    <div className="max-[980px]:fixed top-0 flex items-center h-full sticky max-[980px]:z-10 gap-28">
       <div className="h-full lg:bg-neutral-100 w-72 max-[980px]:w-10 ">
         <div className="flex flex-col gap-4 items-center mt-28">
           <button className="flex justify-center items-center h-full w-full py-52 gap-3 min-[980px]:hidden transition-all hover:bg-neutral-100 active:bg-neutral-200 rounded" onClick={handleSidebar}>
