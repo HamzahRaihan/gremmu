@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { UserContext } from './UserContext';
-import { TOKEN } from '../constants/Key';
-import toast from 'react-hot-toast';
+import { createContext, useContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { UserContext } from "./UserContext";
+import { TOKEN } from "../constants/Key";
+import toast from "react-hot-toast";
 
 export const PetitionContext = createContext({
   petitions: [],
@@ -37,7 +37,7 @@ export const PetitionContextProvider = ({ children }) => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Internal server error', error.message);
+        console.error("Internal server error", error.message);
       });
   };
   useEffect(() => {
@@ -54,7 +54,7 @@ export const PetitionContextProvider = ({ children }) => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Internal server error', error.message);
+        console.error("Internal server error", error.message);
       });
   };
   useEffect(() => {
@@ -73,14 +73,14 @@ export const PetitionContextProvider = ({ children }) => {
         },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         }
       )
       .catch((error) => {
         if (error.response.status === 403) {
-          toast.error('Kamu belum login');
+          toast.error("Kamu belum login");
         } else {
           toast.error(error.message);
         }
