@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar';
 
 const News = () => {
@@ -17,7 +18,9 @@ const News = () => {
           <div>
             <p className="py-2 text-lg text-gray-600">Kamis, 27 September 2023</p>
             <h1 className="py-2  text-3xl font-semibold">
-              <a href="">Kepedulian dalam Membuang dan Mengelola Sampah: Tanggung Jawab Bersama Masyarakat dan Pemerintah </a>{' '}
+              <Link to="/berita/1">
+                <p>Kepedulian dalam Membuang dan Mengelola Sampah: Tanggung Jawab Bersama Masyarakat dan Pemerintah</p>
+              </Link>
             </h1>
             <p className="py-2 text-lg text-gray-600 text-justify">
               Sampah merupakan salah satu masalah lingkungan yang dihadapi oleh masyarakat modern saat ini. Pertumbuhan populasi, urbanisasi, dan konsumsi yang meningkat telah menyebabkan volume sampah yang dihasilkan semakin melonjak.{' '}
@@ -32,7 +35,7 @@ const News = () => {
                 date=" Kamis, 27 September 2023"
                 image="https://ik.imagekit.io/irfantonov111/News%20Card.png?updatedAt=1701282294774"
                 CardTitle="Kepedulian dalam Membuang dan Mengelola Sampah: Tanggung Jawab Bersama Masyarakat dan Pemerintah"
-                titleHref="/#"
+                titleHref="/berita/1"
                 alt="News Image"
               />
               <SingleCard
@@ -60,7 +63,7 @@ const News = () => {
                 date=" Kamis, 27 September 2023"
                 image="https://ik.imagekit.io/irfantonov111/News%20Card.png?updatedAt=1701282294774"
                 CardTitle="Kepedulian dalam Membuang dan Mengelola Sampah: Tanggung Jawab Bersama Masyarakat dan Pemerintah"
-                titleHref="/#"
+                titleHref="/news/1"
                 alt="News Image"
               />
               <SingleCard
