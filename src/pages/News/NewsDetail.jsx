@@ -2,9 +2,10 @@ import { Card, Spinner } from 'flowbite-react';
 import { useContext } from 'react';
 import { NewsContext } from '../../context/NewsContext';
 import { formatDate } from '../../utils/Utils';
+import { Link } from 'react-router-dom';
 
 const NewsDetail = () => {
-  const { newsDetail, loadingDetail } = useContext(NewsContext);
+  const { news, newsDetail, loadingDetail } = useContext(NewsContext);
   console.log('🚀 ~ file: NewsDetail.jsx:8 ~ NewsDetail ~ loadingDetail:', loadingDetail);
   return (
     <div>
@@ -30,10 +31,14 @@ const NewsDetail = () => {
             <div>
               <h1 className=" font-bold text-2xl mb-2 ">Berita Terkini</h1>
               <div className="flex flex-col gap-4">
-                <Card className="" imgAlt="Meaningful alt text for an image that is not purely decorative" imgSrc="https://imgur.com/rqq8tpj.png" horizontal>
-                  <h5 className="text-base font-bold tracking-tight text-gray-900 dark:text-white line-clamp-3">Kepedulian dalam Membuang dan Mengelola Sampah: Tanggung Jawab Bersama Masyarakat dan Pemerintah</h5>
-                  <p className="font-normal text-xs text-gray-700 dark:text-gray-400">Kamis, 7 September 2023</p>
-                </Card>
+                {news.map((item) => (
+                  <Card imgAlt={item.title} imgSrc={item.image} horizontal key={item.id}>
+                    <Link to={`/berita/${item.id}`}>
+                      <h5 className="text-base font-bold tracking-tight text-gray-900 dark:text-white line-clamp-3">{item.title}</h5>
+                    </Link>
+                    <p className="font-normal text-xs text-gray-700 dark:text-gray-400">{formatDate(item.updatedAt)}</p>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>
