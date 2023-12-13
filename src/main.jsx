@@ -14,6 +14,7 @@ import Petition from './pages/Petition/Petition.jsx';
 import DetailPetition from './pages/Petition/DetailPetition.jsx';
 import AboutUs from './pages/AboutUs/Aboutus.jsx';
 import News from './pages/News/News.jsx';
+import NewsDetail from './pages/News/NewsDetail.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: '/berita',
         element: <News />,
+      },
+      {
+        path: '/berita/:id',
+        element: <NewsDetail />,
       },
       {
         path: '/petisi',

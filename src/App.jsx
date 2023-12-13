@@ -5,6 +5,7 @@ import Footer from './layout/Footer';
 import { PostContextProvider } from './context/PostContext';
 import { PetitionContextProvider } from './context/PetitionContext';
 import { Toaster } from 'react-hot-toast';
+import NewsProvider from './context/NewsContext';
 
 const App = () => {
   return (
@@ -13,10 +14,12 @@ const App = () => {
         <UserContextProvider>
           <PostContextProvider>
             <PetitionContextProvider>
-              <Navbar />
-              <Outlet />
-              <Footer />
-              <Toaster />
+              <NewsProvider>
+                <Navbar />
+                <Outlet />
+                <Footer />
+                <Toaster />
+              </NewsProvider>
             </PetitionContextProvider>
           </PostContextProvider>
         </UserContextProvider>
