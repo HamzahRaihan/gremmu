@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const NewsDetail = () => {
   const { news, newsDetail, loadingDetail } = useContext(NewsContext);
-  console.log('🚀 ~ file: NewsDetail.jsx:8 ~ NewsDetail ~ loadingDetail:', loadingDetail);
   return (
     <div>
       {loadingDetail ? (
