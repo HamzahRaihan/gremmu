@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { NewsContext } from '../../context/NewsContext';
 import { Spinner } from 'flowbite-react';
 import { formatDate } from '../../utils/Utils';
+import PropTypes from 'prop-types';
 
 const News = () => {
   const { news, loading } = useContext(NewsContext);
@@ -71,4 +72,13 @@ const SingleCard = ({ alt, image, date, CardDescription, CardTitle, titleHref })
       {/*  */}
     </>
   );
+};
+
+SingleCard.propTypes = {
+  alt: PropTypes.string,
+  image: PropTypes.string,
+  date: PropTypes.any,
+  CardDescription: PropTypes.string,
+  CardTitle: PropTypes.string,
+  titleHref: PropTypes.string,
 };
