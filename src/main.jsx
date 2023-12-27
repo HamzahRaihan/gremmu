@@ -15,6 +15,7 @@ import DetailPetition from './pages/Petition/DetailPetition.jsx';
 import AboutUs from './pages/AboutUs/Aboutus.jsx';
 import News from './pages/News/News.jsx';
 import NewsDetail from './pages/News/NewsDetail.jsx';
+import Donation from './pages/Donation/Donation.jsx';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: '/komunitas',
         element: <Community />,
+      },
+      {
+        path: '/donasi',
+        element: <Donation />,
       },
       {
         path: '/user/:userId',
