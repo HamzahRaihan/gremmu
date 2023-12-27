@@ -26,6 +26,9 @@ function Sidebar(props) {
         <NavLink to="/komunitas" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
           Komunitas
         </NavLink>
+        <NavLink to="/donasi" className="flex px-2 items-center h-8 rounded transition-all hover:bg-[#11BB60] hover:text-white active:bg-[#328056] cursor-pointer">
+          Donasi
+        </NavLink>
         {!userData ? (
           <div className="flex gap-4">
             <Link to="/login">
