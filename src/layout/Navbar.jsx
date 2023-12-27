@@ -61,6 +61,9 @@ const Navbar = () => {
           <NavLink to="/komunitas" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
             Komunitas
           </NavLink>
+          <NavLink to="/donasi" className={({ isActive }) => (isActive ? 'bg-[#11BB60] cursor-pointer text-white p-2  rounded' : 'p-2 ')}>
+            Donasi
+          </NavLink>
         </nav>
         <div className="flex items-center gap-3 max-[980px]:hidden">
           {!userData ? (
