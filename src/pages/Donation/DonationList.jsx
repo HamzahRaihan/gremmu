@@ -6,6 +6,10 @@ const DonationList = () => {
   const handleAmountClick = (amount) => {
     setDonate({ ...donate, donation_amount: amount.toString() });
   };
+  const handleSubmitDonation = (e) => {
+    e.preventDefault();
+    alert('submitted');
+  };
   console.log(donate);
   return (
     <div className="grid grid-cols-2 gap-4 ">
@@ -13,11 +17,13 @@ const DonationList = () => {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit possimus molestias explicabo autem dolor eos porro consequuntur error eaque! Provident aliquam nostrum quibusdam deserunt incidunt aperiam harum aut amet explicabo.
       </div>
       <div>
-        {donations.map((amount) => (
-          <div key={amount}>
-            <button onClick={() => handleAmountClick(amount)}>Rp. {amount.toLocaleString()}</button>{' '}
-          </div>
-        ))}
+        <form onSubmit={handleSubmitDonation}>
+          {donations.map((amount) => (
+            <div key={amount}>
+              <button onClick={() => handleAmountClick(amount)}>Rp. {amount.toLocaleString()}</button>{' '}
+            </div>
+          ))}
+        </form>
         <input type="text" />
       </div>
     </div>
