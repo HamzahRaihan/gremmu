@@ -26,7 +26,7 @@ const Donation = () => {
   }, []);
 
   return (
-    <>
+    <div className="px-4">
       <div className="max-w-6xl pt-24 m-auto flex-row gap-4 pb-10">
         <p className="text-center font-bold text-2xl">Donasi</p>
         <p>
@@ -37,7 +37,7 @@ const Donation = () => {
       <div className="max-w-6xl m-auto">
         <DonationList />
       </div>
-    </>
+    </div>
   );
 };
 
