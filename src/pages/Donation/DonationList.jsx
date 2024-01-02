@@ -5,24 +5,42 @@ import { DonationContext } from '../../context/DonationContext';
 
 const DonationList = () => {
   const { userData } = useContext(UserContext);
-  const { handleDonation } = useContext(DonationContext);
+
+  const { handleDonation, tokenPayment, loading } = useContext(DonationContext);
+  console.log('🚀 ~ file: DonationList.jsx:10 ~ DonationList ~ loading:', loading);
 
   const [donate, setDonate] = useState({
-    donation_amount: '',
-    firstName: userData?.firstName,
-    lastName: userData?.lastName,
-    email: userData?.email,
+    donation_amount: 0,
+    firstName: '',
+    lastName: '',
+    email: '',
   });
 
   const handleAmountClick = (amount) => {
-    setDonate({ ...donate, donation_amount: amount.toString() });
+    console.log('🚀 ~ file: DonationList.jsx:20 ~ handleAmountClick ~ amount:', amount);
+    if (!userData) {
+      alert('Login terlebih dahulu');
+      return;
+    }
+    setDonate({ ...donate, donation_amount: amount.toString(), firstName: userData?.firstName, lastName: userData?.lastName, email: userData?.email });
   };
-  const handleSubmitDonation = (e) => {
+
+  const handleSubmitDonation = async (e) => {
     e.preventDefault();
-    handleDonation(donate);
-    alert('submitted');
+
+    if (!userData) {
+      alert('Login terlebih dahulu');
+      return;
+    }
+
+    if (!donate.donation_amount) {
+      alert('Pilih total donasi');
+      return;
+    }
+
+    await handleDonation(donate);
   };
-  console.log(donate);
+
   return (
     <div className="grid grid-cols-2 gap-4 ">
       <div>
