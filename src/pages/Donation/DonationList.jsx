@@ -4,10 +4,10 @@ import { UserContext } from '../../context/UserContext';
 import { DonationContext } from '../../context/DonationContext';
 
 const DonationList = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
   const { userData } = useContext(UserContext);
 
-  const { handleDonation, tokenPayment, loading } = useContext(DonationContext);
-  console.log('🚀 ~ file: DonationList.jsx:10 ~ DonationList ~ loading:', loading);
+  const { handleDonation } = useContext(DonationContext);
 
   const [donate, setDonate] = useState({
     donation_amount: 0,
@@ -22,6 +22,7 @@ const DonationList = () => {
       alert('Login terlebih dahulu');
       return;
     }
+    setSelectedButton(amount);
     setDonate({ ...donate, donation_amount: amount.toString(), firstName: userData?.firstName, lastName: userData?.lastName, email: userData?.email });
   };
 
@@ -42,15 +43,21 @@ const DonationList = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-4 ">
+    <div className="grid grid-cols-2 max-[980px]:grid-cols-1 gap-4 ">
       <div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit possimus molestias explicabo autem dolor eos porro consequuntur error eaque! Provident aliquam nostrum quibusdam deserunt incidunt aperiam harum aut amet explicabo.
       </div>
       <div>
-        <form onSubmit={handleSubmitDonation}>
+        <form className="grid grid-cols-2 max-[980px]:grid-cols-1 gap-3" onSubmit={handleSubmitDonation}>
           {donations.map((amount) => (
             <div key={amount}>
-              <div onClick={() => handleAmountClick(amount)}>Rp. {amount.toLocaleString()}</div>
+              <button
+                type="button"
+                className={`w-full py-3 rounded-md border border-black text-center shadow-md  ${selectedButton == amount ? 'bg-[#11bb60] text-white transition-all' : 'hover:bg-neutral-200 transition-all'}`}
+                onClick={() => handleAmountClick(amount)}
+              >
+                Rp. {amount.toLocaleString()}
+              </button>
             </div>
           ))}
           <button>Pay</button>
