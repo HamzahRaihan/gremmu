@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useState } from 'react';
 import { NewsContextDispatch } from './NewsContext';
 import axios from 'axios';
 
@@ -7,9 +7,13 @@ export const DonationContext = createContext(null);
 export const DonationContextDispatch = createContext(null);
 
 const DonationProvider = ({ children }) => {
-  const [donate, dispatch] = useReducer(DonateReducer, []);
+  const [loading, setLoading] = useState(false);
+  const [tokenPayment, dispatch] = useReducer(DonateReducer, []);
+  console.log('🚀 ~ file: DonationContext.jsx:11 ~ DonationProvider ~ tokenPayment:', tokenPayment);
 
   const handleDonation = async ({ donation_amount, firstName, lastName, email }) => {
+    console.log('🚀 ~ file: DonationContext.jsx:14 ~ handleDonation ~ donation_amount:', donation_amount);
+    setLoading(true);
     await axios
       .post(
         'http://localhost:3000/donations',
@@ -25,11 +29,13 @@ const DonationProvider = ({ children }) => {
           },
         }
       )
-      .then((result) => console.log(result.data.data));
+      .then((result) => window.snap.pay(result.data.data))
+      .catch((error) => console.error(error.message))
+      .finally(setLoading(false));
   };
 
   return (
-    <DonationContext.Provider value={{ handleDonation, donate }}>
+    <DonationContext.Provider value={{ handleDonation, tokenPayment, loading }}>
       <NewsContextDispatch.Provider value={dispatch}>{children}</NewsContextDispatch.Provider>
     </DonationContext.Provider>
   );
@@ -37,9 +43,13 @@ const DonationProvider = ({ children }) => {
 
 export default DonationProvider;
 
-const DonateReducer = (donate, action) => {
+const DonateReducer = (tokenPayment, action) => {
   switch (action.type) {
     case 'SET_DONATION':
-      return action.payload;
+      return { token: action.payload };
+    case 'CANCEL_DONATION':
+      return;
+    default:
+      return tokenPayment;
   }
 };
