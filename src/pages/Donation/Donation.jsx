@@ -1,6 +1,30 @@
+import { useEffect } from 'react';
 import DonationList from './DonationList';
 
 const Donation = () => {
+  useEffect(() => {
+    const fetchMidtrans = () => {
+      try {
+        const midtransSnapScript = 'https://app.sandbox.midtrans.com/snap/snap.js';
+        const clientKey = import.meta.env.VITE_MIDTRANS_CLIENT_KEY;
+
+        const script = document.createElement('script');
+        script.src = midtransSnapScript;
+        script.setAttribute('data-client-key', clientKey);
+        script.async = true;
+
+        script.onload = () => {
+          window.snapJsLoaded = true;
+        };
+
+        document.body.appendChild(script);
+      } catch (error) {
+        console.error('Error loading script', error.message);
+      }
+    };
+    fetchMidtrans();
+  }, []);
+
   return (
     <>
       <div className="max-w-6xl pt-24 m-auto flex-row gap-4 pb-10">
