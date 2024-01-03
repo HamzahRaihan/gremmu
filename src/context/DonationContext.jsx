@@ -9,14 +9,13 @@ export const DonationContextDispatch = createContext(null);
 const DonationProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [tokenPayment, dispatch] = useReducer(DonateReducer, []);
-  console.log('🚀 ~ file: DonationContext.jsx:11 ~ DonationProvider ~ tokenPayment:', tokenPayment);
 
   const handleDonation = async ({ donation_amount, firstName, lastName, email }) => {
     console.log('🚀 ~ file: DonationContext.jsx:14 ~ handleDonation ~ donation_amount:', donation_amount);
     setLoading(true);
     await axios
       .post(
-        'http://localhost:3000/donations',
+        `${import.meta.env.VITE_BASE_URL}/donations`,
         {
           donation_amount,
           firstName,
