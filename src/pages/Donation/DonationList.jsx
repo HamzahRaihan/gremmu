@@ -60,9 +60,9 @@ const DonationList = () => {
               </button>
             </div>
           ))}
+          <input className="rounded-md" onChange={(e) => setDonate({ ...donate, donation_amount: e.target.value })} type="number" id="donation_amount" name="donation_amount" placeholder="Berapa yang ingin kamu donasikan?" />
           <button>Pay</button>
         </form>
-        <input type="text" />
       </div>
     </div>
   );
