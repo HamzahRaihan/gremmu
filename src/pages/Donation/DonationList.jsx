@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { donations } from '../../data/donations';
 import { UserContext } from '../../context/UserContext';
 import { DonationContext } from '../../context/DonationContext';
+import DonationPurpose from './DonationPurpose';
 
 const DonationList = () => {
   const [selectedButton, setSelectedButton] = useState(null);
@@ -45,7 +46,7 @@ const DonationList = () => {
   return (
     <div className="grid grid-cols-2 max-[980px]:grid-cols-1 gap-4 ">
       <div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit possimus molestias explicabo autem dolor eos porro consequuntur error eaque! Provident aliquam nostrum quibusdam deserunt incidunt aperiam harum aut amet explicabo.
+        <DonationPurpose />
       </div>
       <div>
         <form className="grid grid-cols-2 max-[980px]:grid-cols-1 gap-3" onSubmit={handleSubmitDonation}>
