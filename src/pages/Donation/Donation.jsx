@@ -26,7 +26,7 @@ const Donation = () => {
   }, []);
 
   return (
-    <div className="px-4">
+    <div className="px-4 pb-10">
       <div className="max-w-6xl pt-24 m-auto flex-row gap-4 pb-10">
         <p className="text-center font-bold text-2xl">Donasi</p>
         <p>
