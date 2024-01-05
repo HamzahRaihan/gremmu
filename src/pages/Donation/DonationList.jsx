@@ -15,7 +15,9 @@ const DonationList = () => {
     firstName: '',
     lastName: '',
     email: '',
+    phone: '',
   });
+  console.log('🚀 ~ file: DonationList.jsx:20 ~ DonationList ~ donate:', donate);
 
   const handleAmountClick = (amount) => {
     console.log('🚀 ~ file: DonationList.jsx:20 ~ handleAmountClick ~ amount:', amount);
@@ -24,7 +26,7 @@ const DonationList = () => {
       return;
     }
     setSelectedButton(amount);
-    setDonate({ ...donate, donation_amount: amount.toString(), firstName: userData?.firstName, lastName: userData?.lastName, email: userData?.email });
+    setDonate({ ...donate, donation_amount: amount.toString() });
   };
 
   const handleSubmitDonation = async (e) => {
@@ -50,6 +52,12 @@ const DonationList = () => {
       </div>
       <div>
         <form className="grid grid-cols-2 max-[980px]:grid-cols-1 gap-3" onSubmit={handleSubmitDonation}>
+          <label htmlFor="donation_amount">Nominal:</label>
+          <input className="rounded-md col-span-2" onChange={(e) => setDonate({ ...donate, [e.target.name]: e.target.value })} type="number" id="donation_amount" name="donation_amount" placeholder="Berapa yang ingin kamu donasikan?" />
+
+          <label className="col-span-2" htmlFor="donation_amount">
+            Atau pilih nominal yang disediakan
+          </label>
           {donations.map((amount) => (
             <div key={amount}>
               <button
@@ -61,8 +69,25 @@ const DonationList = () => {
               </button>
             </div>
           ))}
-          <input className="rounded-md" onChange={(e) => setDonate({ ...donate, donation_amount: e.target.value })} type="number" id="donation_amount" name="donation_amount" placeholder="Berapa yang ingin kamu donasikan?" />
-          <button>Pay</button>
+
+          <label className="col-span-2" htmlFor="firstName">
+            Nama: <span className="text-red-600">*</span>
+          </label>
+          <input className="rounded-md " onChange={(e) => setDonate({ ...donate, [e.target.name]: e.target.value })} type="text" id="firstName" name="firstName" placeholder="Nama awal" required />
+
+          <input className="rounded-md " onChange={(e) => setDonate({ ...donate, [e.target.name]: e.target.value })} type="text" id="lastName" name="lastName" placeholder="Nama akhir" required />
+
+          <label className="col-span-2" htmlFor="firstName">
+            Nomor HP: <span className="text-red-600">*</span>
+          </label>
+          <input className="rounded-md col-span-2" onChange={(e) => setDonate({ ...donate, [e.target.name]: e.target.value })} type="number" id="phone" name="phone" placeholder="Nomor HP" required />
+
+          <label className="col-span-2" htmlFor="firstName">
+            Email: <span className="text-red-600">*</span>
+          </label>
+          <input className="rounded-md col-span-2" onChange={(e) => setDonate({ ...donate, [e.target.name]: e.target.value })} type="email" id="email" name="email" placeholder="Berapa yang ingin kamu donasikan?" required />
+
+          <button className="rounded border border-black py-3 col-span-2">Donasikan</button>
         </form>
       </div>
     </div>
