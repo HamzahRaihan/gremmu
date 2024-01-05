@@ -1,5 +1,6 @@
 import { createContext, useReducer, useState } from 'react';
 import { NewsContextDispatch } from './NewsContext';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 export const DonationContext = createContext(null);
@@ -10,8 +11,8 @@ const DonationProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [tokenPayment, dispatch] = useReducer(DonateReducer, []);
 
-  const handleDonation = async ({ donation_amount, firstName, lastName, email }) => {
-    console.log('🚀 ~ file: DonationContext.jsx:14 ~ handleDonation ~ donation_amount:', donation_amount);
+  const handleDonation = async ({ donation_amount, firstName, lastName, email, phone }) => {
+    console.log('🚀 ~ file: DonationContext.jsx:15 ~ handleDonation ~ phone:', phone);
     setLoading(true);
     await axios
       .post(
@@ -21,6 +22,7 @@ const DonationProvider = ({ children }) => {
           firstName,
           lastName,
           email,
+          phone,
         },
         {
           headers: {
@@ -51,4 +53,8 @@ const DonateReducer = (tokenPayment, action) => {
     default:
       return tokenPayment;
   }
+};
+
+DonationProvider.propTypes = {
+  children: PropTypes.node,
 };
