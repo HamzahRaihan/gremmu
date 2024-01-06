@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NewsContext } from '../../context/NewsContext';
 import { Spinner } from 'flowbite-react';
 import { formatDate } from '../../utils/Utils';
@@ -8,7 +8,17 @@ import PropTypes from 'prop-types';
 
 const News = () => {
   const { news, loading } = useContext(NewsContext);
-  console.log('🚀 ~ file: News.jsx:10 ~ News ~ news:', news);
+  const [input, setInput] = useState('');
+  const [searchNews, setSearchNews] = useState([]);
+
+  useEffect(() => {
+    if (input == '') {
+      setSearchNews(news);
+    }
+    let search = news.filter((item) => item.title.toLowerCase().includes(input));
+    setSearchNews(search);
+  }, [news, input]);
+
   return (
     <div className="w-full bg-white py-[50px] mt-24">
       <div className="md:max-w-[1480px] m-auto max-w-[600px] px-4 md:px-0">
@@ -17,10 +27,10 @@ const News = () => {
           Temukan berita terbaru, wawasan mendalam, dan cerita inspiratif yang menggugah untuk memahami, menghargai, dan bertindak dalam upaya melindungi dan melestarikan lingkungan kita bersama-sama
         </p>
 
-        <SearchBar />
+        <SearchBar input={input} setInput={setInput} />
 
         <div className="md:max-w-[1480px] m-auto grid md:grid-cols-2 gap-8 max-w-[600px] items-center pt-10 px-4 md:px-10">
-          <img src="https://ik.imagekit.io/irfantonov111/News%20Card.png?updatedAt=1701282294774" className="w-[650px] mx-auto" />
+          <img src="https://ik.imagekit.io/irfantonov111/News%20Card.png?updatedAt=1701282294774" className="w-[650px] mx-auto" alt="news" />
 
           <div>
             <p className="py-2 text-lg text-gray-600">Kamis, 27 September 2023</p>
@@ -41,7 +51,7 @@ const News = () => {
               {loading ? (
                 <Spinner />
               ) : (
-                news.map((item) => <SingleCard date={formatDate(item.updatedAt)} image={item.image} CardTitle={item.title} titleHref={`/berita/${item.id}`} CardDescription={item.description} alt="News Image" key={item.id} />)
+                searchNews.map((item) => <SingleCard date={formatDate(item.updatedAt)} image={item.image} CardTitle={item.title} titleHref={`/berita/${item.id}`} CardDescription={item.description} alt="News Image" key={item.id} />)
               )}
             </div>
           </div>
