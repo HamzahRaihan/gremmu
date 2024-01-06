@@ -1,7 +1,7 @@
 // src/SearchBar.js
 import { useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSortBy, setSelectedSortBy] = useState('');
@@ -17,8 +17,8 @@ const SearchBar = () => {
         type="text"
         placeholder="Cari Berita"
         className="border focus:outline-none focus:border-[#11BB60] focus:ring-[#11BB60] focus:ring-1 p-2 w-[full] md:w-auto col-span-7 "
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={props.input}
+        onChange={(e) => props.setInput(e.target.value)}
       />
       <button className="bg-[#11BB60] text-white p-2 rounded w-10 h-full md:w-10 hover:text-[#11BB60] hover:bg-white col-span-1" onClick={handleSearch}>
         <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
