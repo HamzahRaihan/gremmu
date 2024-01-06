@@ -8,8 +8,8 @@ const AboutUs = () => {
           <div className="py-5 my-5">
             <h1 className="text-3xl font-bold p-6">Tentang Kami</h1>
             <p className="mx-auto text-lg">
-              GreenWorldWare adalah sebuah website yang berisikan tentang artikel, video edukasi, kuis seputar dampak pencemaran lingkungan dan tempat bagi para pengguna website berkontribusi untuk membagikan kegiatannya tentang peduli
-              lingkungan seperti langkah-langkah apa yang dapat diambil oleh masyarakat dan pemerintah untuk mengatasi masalah sampah dan lain-lain.
+              Gremmu atau Green Community adalah sebuah website yang berisikan tentang artikel, video edukasi, kuis seputar dampak pencemaran lingkungan dan tempat bagi para pengguna website berkontribusi untuk membagikan kegiatannya
+              tentang peduli lingkungan seperti langkah-langkah apa yang dapat diambil oleh masyarakat dan pemerintah untuk mengatasi masalah sampah dan lain-lain.
             </p>
           </div>
         </div>
