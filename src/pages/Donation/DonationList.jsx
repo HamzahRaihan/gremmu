@@ -87,7 +87,7 @@ const DonationList = () => {
           </label>
           <input className="rounded-md col-span-2" onChange={(e) => setDonate({ ...donate, [e.target.name]: e.target.value })} type="email" id="email" name="email" placeholder="Berapa yang ingin kamu donasikan?" required />
 
-          <button className="rounded border border-black py-3 col-span-2">Donasikan</button>
+          <button className="rounded border border-black py-3 col-span-2 hover:bg-neutral-200 transition-all active:bg-[#11bb60]">Donasikan</button>
         </form>
       </div>
     </div>
