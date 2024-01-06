@@ -34,7 +34,7 @@ const HeroSection = () => {
             CIPTAKAN <span className="bg-[#11BB60] text-white">LINGKUNGAN</span> BERSIH UNTUK LINGKUNGAN <span className="bg-[#11BB60] text-white">SEHAT</span> BERKELANJUTAN.
           </h1>
 
-          <p className="py-2 text-lg ">GreenWorldAware adalah website untuk anda yang sadar lingkungan, memberikan informasi, tips, dan wadah untuk membantu anda membuat kontribusi kebersihan demi bumi yang lebih bersih.</p>
+          <p className="py-2 text-lg ">Gremmu atau Green Community adalah website untuk anda yang sadar lingkungan, memberikan informasi, tips, dan wadah untuk membantu anda membuat kontribusi kebersihan demi bumi yang lebih bersih.</p>
           <div>
             <Button type="daftar" title="Daftar" />
           </div>
