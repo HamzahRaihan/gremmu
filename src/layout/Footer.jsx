@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="flex flex-col items-start  gap-3">
             <div className=" bg-[#ffffff] rounded-[8px] ">
               <div className="flex-col items-center gap-[10px]  top-[-5px] cursor-pointer">
-                <img alt="Greenworldaware" src="https://ik.imagekit.io/alzirahmana/Asset%20-%20mobile%20responsive%20web/GreenWorldAware-2%201.png?updatedAt=1696991576040" width={150} />
+                <img alt="Gremmu" src="https://ik.imagekit.io/2tuizmyym/LogoGremmu.png?updatedAt=1704544437696" width={50} />
               </div>
             </div>
             <p className="font-normal text-[#ffffff] text-xs leading-[18px]">
