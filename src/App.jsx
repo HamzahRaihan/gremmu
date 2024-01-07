@@ -6,6 +6,7 @@ import { PostContextProvider } from './context/PostContext';
 import { PetitionContextProvider } from './context/PetitionContext';
 import { Toaster } from 'react-hot-toast';
 import NewsProvider from './context/NewsContext';
+import DonationProvider from './context/DonationContext';
 
 const App = () => {
   return (
@@ -15,10 +16,12 @@ const App = () => {
           <PostContextProvider>
             <PetitionContextProvider>
               <NewsProvider>
-                <Navbar />
-                <Outlet />
-                <Footer />
-                <Toaster />
+                <DonationProvider>
+                  <Navbar />
+                  <Outlet />
+                  <Footer />
+                  <Toaster />
+                </DonationProvider>
               </NewsProvider>
             </PetitionContextProvider>
           </PostContextProvider>
