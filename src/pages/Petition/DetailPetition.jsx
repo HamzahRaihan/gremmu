@@ -3,9 +3,11 @@ import { PetitionContext } from '../../context/PetitionContext';
 import { formatDate } from '../../utils/Utils';
 import SignaturePetition from './SignaturePetition';
 import { DetailPetitionSkeleton } from '../../layout/Skeleton';
+import Participation from './Participation';
 
 const DetailPetition = () => {
   const { detailPetition, loading } = useContext(PetitionContext);
+  console.log('🚀 ~ DetailPetition ~ detailPetition:', detailPetition);
   return (
     <div className="lg:max-w-5xl md:max-w-3xl pt-32 pb-10 m-auto flex flex-col gap-6 px-2">
       {loading ? (
@@ -15,7 +17,7 @@ const DetailPetition = () => {
           <div className="flex flex-col col-span-2">
             <div className="flex flex-col gap-4">
               <h1 className="text-center font-bold text-2xl lg:text-2xl md:text-2xl md:text-start">{detailPetition.title}</h1>
-              <img className="rounded-lg shadow object-cover sticky" src={detailPetition.image} alt="image" />
+              <img className="rounded-lg shadow object-cover sticky" src={detailPetition.image} alt="petition visual" />
               <p>
                 <span className="text-neutral-400">Tanggal</span> {formatDate(detailPetition.createdAt)}
               </p>
@@ -27,7 +29,10 @@ const DetailPetition = () => {
             <h1>{detailPetition.description}</h1>
           </div>
           <div className="hidden lg:block md:block sm:hidden w-full">
-            <SignaturePetition />
+            <div className="sticky top-4">
+              <SignaturePetition />
+              <Participation />
+            </div>
           </div>
         </div>
       )}
