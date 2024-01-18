@@ -6,7 +6,7 @@ const SignaturePetition = () => {
   const { detailPetition, handleSignature, loadingButton } = useContext(PetitionContext);
 
   return (
-    <div className="sticky top-4 border border-neutral-200 p-4 rounded-lg">
+    <div className="border border-neutral-200 p-4 rounded-lg">
       <div className="flex flex-col gap-2">
         <Progress progress={detailPetition.Signatures?.length / 10} color="green" />
         <div className="flex justify-between font-bold">
