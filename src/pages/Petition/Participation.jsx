@@ -6,8 +6,8 @@ const Participation = () => {
   const { participate, loading } = useContext(PetitionContext);
 
   return (
-    <div className="mt-2 border border-neutral-200 p-4 rounded-lg h-96 overflow-x-scroll">
-      <p className="text-center text-xl font-bold mb-4">Partisipasi</p>
+    <div className="mt-2 border border-neutral-200 p-4 rounded-lg h-96 overflow-y-scroll overflow-x-hidden">
+      <p className="text-center text-xl font-bold mb-4">Partisipan</p>
       <div className="flex-col gap-1">
         {loading ? (
           <Spinner />
