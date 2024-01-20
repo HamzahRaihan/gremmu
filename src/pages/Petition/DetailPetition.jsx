@@ -23,6 +23,7 @@ const DetailPetition = () => {
               </p>
               <div className="md:hidden">
                 <SignaturePetition />
+                <Participation />
               </div>
             </div>
             <h1 className="font-bold mt-4">Mengapa petisi ini penting</h1>
