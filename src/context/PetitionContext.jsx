@@ -12,6 +12,7 @@ export const PetitionContext = createContext({
   participate: [],
   loading: false,
   loadingButton: false,
+  loadingPart: false,
   handleSignature: async () => {},
 });
 
@@ -19,8 +20,8 @@ export const PetitionContextProvider = ({ children }) => {
   const [petitions, setPetitions] = useState([]);
   const [detailPetition, setDetailPetition] = useState([]);
   const [participate, setParticipate] = useState([]);
-  console.log('🚀 ~ PetitionContextProvider ~ participate:', participate);
   const [loading, setLoading] = useState(false);
+  const [loadingPart, setLoadingPart] = useState(false);
   const [loadingButton, setLoadingButton] = useState(false);
 
   const { id } = useParams();
@@ -50,7 +51,7 @@ export const PetitionContextProvider = ({ children }) => {
   const getPetitionByID = async () => {
     setLoading(true);
     await axios
-      .get(`${import.meta.env.VITE_BASE_URL}/petitions/${id}`)
+      .get(`${import.meta.env.VITE_BASE_URL}/petitions/${id ? id : 1}`)
       .then((response) => {
         const petitionDetailData = response.data.data;
         setDetailPetition(petitionDetailData);
@@ -66,12 +67,15 @@ export const PetitionContextProvider = ({ children }) => {
   }, [id]);
 
   const getParticipation = async () => {
+    setLoadingPart(true);
     try {
       const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/signatures/${id}`);
       const result = response.data.data;
       setParticipate(result);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoadingPart(false);
     }
   };
 
@@ -116,7 +120,7 @@ export const PetitionContextProvider = ({ children }) => {
     setLoadingButton(false);
   };
 
-  return <PetitionContext.Provider value={{ petitions, detailPetition, participate, loading, loadingButton, handleSignature }}>{children}</PetitionContext.Provider>;
+  return <PetitionContext.Provider value={{ petitions, detailPetition, participate, loading, loadingButton, loadingPart, handleSignature }}>{children}</PetitionContext.Provider>;
 };
 
 PetitionContextProvider.propTypes = {
