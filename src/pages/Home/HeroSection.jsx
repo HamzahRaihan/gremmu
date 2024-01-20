@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { HeroShapeDesktop, HeroShapeMobile } from '../../components/ui/Shapes';
 import Button from '../../layout/Button';
+import { UserContext } from '../../context/UserContext';
 const HeroSection = () => {
+  const { userData } = useContext(UserContext);
+
   const [screen, setScreen] = useState('');
 
   useEffect(() => {
@@ -35,12 +38,10 @@ const HeroSection = () => {
           </h1>
 
           <p className="py-2 text-lg ">Gremmu atau Green Community adalah website untuk anda yang sadar lingkungan, memberikan informasi, tips, dan wadah untuk membantu anda membuat kontribusi kebersihan demi bumi yang lebih bersih.</p>
-          <div>
-            <Button type="daftar" title="Daftar" />
-          </div>
+          <div>{!userData && <Button type="daftar" title="Daftar" />}</div>
         </div>
         <div className="flex justify-center max-[980px]:order-first">
-          <img src="https://raw.githubusercontent.com/Skilvul-FS13/Mobile-Responsive-Website/master/img/hero-picture.png" alt="hero-image" width={500} />
+          <img src="https://raw.githubusercontent.com/Skilvul-FS13/Mobile-Responsive-Website/master/img/hero-picture.png" alt="hero" width={500} />
         </div>
       </div>
     </div>
