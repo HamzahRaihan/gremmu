@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import Button from '../../layout/Button';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 const CTAHomepage = () => {
+  const { userData } = useContext(UserContext);
   return (
     <div className="relative h-96 overflow-hidden top-8">
       <div className="absolute flex flex-col gap-10 w-full justify-center text-center top-5 font-bold px-10">
@@ -10,9 +13,11 @@ const CTAHomepage = () => {
           <p className="font-thin max-w-xl m-auto lg:text-xl md:text-xl sm:text-md max-[500px]:text-md">Bergabunglah dengan Ribuan Individu yang Peduli dengan Lingkungan.</p>
         </div>
         <div className="max-w-lg m-auto">
-          <Link to="/register">
-            <Button type="daftar" title="Daftar" />
-          </Link>
+          {!userData && (
+            <Link to="/register">
+              <Button type="daftar" title="Daftar" />
+            </Link>
+          )}
         </div>
       </div>
       <div className="absolute -z-10 object-cover">
