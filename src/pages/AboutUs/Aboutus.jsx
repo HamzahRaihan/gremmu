@@ -6,6 +6,12 @@ const AboutUs = () => {
       <div className="flex justify-center pt-20 max-w-5xl px-2 m-auto">
         <div className="p-5 text-center bg-body-tertiary">
           <div className="py-5 my-5">
+            <iframe
+              src="
+              https://drive.google.com/file/d/1dHIVvBDD4tfFDtwC9kJNoYTjFQ6XiOGB/preview"
+              title="pdf"
+              className="w-full h-80 "
+            ></iframe>
             <h1 className="text-3xl font-bold p-6">Tentang Kami</h1>
             <p className="mx-auto text-lg">
               Gremmu atau Green Community adalah sebuah website yang berisikan tentang artikel, video edukasi, kuis seputar dampak pencemaran lingkungan dan tempat bagi para pengguna website berkontribusi untuk membagikan kegiatannya
